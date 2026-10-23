@@ -2,8 +2,10 @@
 
 // Khung chính của trang lịch: giữ state tháng đang xem và ngày đang chọn.
 // "today" do server tính sẵn (xem home-calendar.tsx) để HTML gửi về đã có nội dung cho SEO.
+import Link from "next/link";
 import { useState } from "react";
 import type { SolarDate } from "lich-core";
+import { monthHref } from "@/lib/lich-pages";
 import { DayDetail } from "./day-detail";
 import { MonthGrid } from "./month-grid";
 
@@ -33,7 +35,9 @@ export function CalendarApp({ today }: { today: SolarDate }) {
           </button>
           <div className="text-center">
             <h2 className="text-lg font-semibold">
-              Tháng {view.month} / {view.year}
+              <Link href={monthHref(view.month, view.year)} className="hover:text-primary">
+                Tháng {view.month} / {view.year}
+              </Link>
             </h2>
             <button onClick={() => selectDay(today)} className="text-sm font-medium text-primary hover:underline">
               Hôm nay

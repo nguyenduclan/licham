@@ -137,6 +137,10 @@ npm run dev:web
 | Header bảo mật, CSP (danh sách tên miền được phép) | `apps/web/next.config.ts`. Gắn dịch vụ ngoài (AdSense, Analytics…) phải thêm tên miền của họ vào CSP, nếu không trình duyệt sẽ chặn |
 | Đặt tên miền thật (canonical, sitemap, robots) | Copy `apps/web/.env.example` thành `.env.local`, điền `NEXT_PUBLIC_SITE_URL` |
 | Thêm trang vào sitemap | `src/app/sitemap.ts` |
+| **Mỗi đầu năm:** đổi các năm có trang lịch ngày/tháng/năm dựng sẵn + đưa vào sitemap | `SEO_YEARS` trong `src/lib/site.ts` (giữ năm trước, năm nay, năm sau) |
+| Sửa nội dung trang lịch theo ngày / tháng / năm | `src/components/lich-am/day-page.tsx`, `month-page.tsx`, `year-page.tsx`; mô tả tiết khí: `shared/data/tiet-khi.json` |
+| Sửa công cụ đổi ngày âm dương | `src/components/doi-ngay/doi-ngay-app.tsx`, trang: `src/app/doi-ngay-am-duong/page.tsx` |
+| Sửa chân trang, trang 404 | `src/components/site-footer.tsx`, `src/app/not-found.tsx` |
 | Thêm mục menu đầu trang | Mảng `NAV` trong `src/components/site-header.tsx` |
 | Sửa trang Xem ngày tốt xấu | `src/app/xem-ngay-tot-xau/page.tsx`, các mục trong `src/components/xem-ngay/` |
 | Đổi tiêu đề / mô tả hiện trên Google | `metadata` trong `layout.tsx` |

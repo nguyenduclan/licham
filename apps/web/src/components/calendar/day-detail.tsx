@@ -2,9 +2,11 @@
 
 // Thẻ chi tiết ngày: ngày dương, ngày âm, can chi, mệnh ngày, hoàng/hắc đạo, tuổi xung, giờ hoàng đạo.
 import { chiHourStart, DIA_CHI, getDayInfo, type SolarDate } from "lich-core";
+import Link from "next/link";
 import { toIso } from "lich-core";
 import { XemNgayForm } from "@/components/xem-ngay/xem-ngay-form";
 import { getHolidays } from "@/lib/holidays";
+import { dayHref } from "@/lib/lich-pages";
 import { WEEKDAYS } from "@/lib/vn-date";
 
 export function DayDetail({ date }: { date: SolarDate }) {
@@ -23,6 +25,9 @@ export function DayDetail({ date }: { date: SolarDate }) {
           Ngày <b>{lunar.day}</b> tháng <b>{lunar.month}</b>
           {lunar.isLeap && " (nhuận)"} năm <b>{info.canChiYear}</b>
         </p>
+        <Link href={dayHref(date)} className="mt-1 inline-block text-sm font-medium text-primary hover:underline">
+          Xem chi tiết ngày {date.day}/{date.month}/{date.year} ›
+        </Link>
         {holidays.length > 0 && (
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             {holidays.map((h) => (
