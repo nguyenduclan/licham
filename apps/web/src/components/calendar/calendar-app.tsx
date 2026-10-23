@@ -1,17 +1,13 @@
 "use client";
 
 // Khung chính của trang lịch: giữ state tháng đang xem và ngày đang chọn.
-import { io } from "next/cache";
-import { use, useState } from "react";
+// "today" do server tính sẵn (xem home-calendar.tsx) để HTML gửi về đã có nội dung cho SEO.
+import { useState } from "react";
 import type { SolarDate } from "lich-core";
-import { todayInVietnam } from "@/lib/vn-date";
 import { DayDetail } from "./day-detail";
 import { MonthGrid } from "./month-grid";
 
-export function CalendarApp() {
-  // Ngày hôm nay phải tính lúc có request, không chụp vào trang tĩnh lúc build
-  use(io());
-  const [today] = useState(todayInVietnam);
+export function CalendarApp({ today }: { today: SolarDate }) {
   const [selected, setSelected] = useState<SolarDate>(today);
   const [view, setView] = useState({ month: today.month, year: today.year });
 

@@ -59,6 +59,9 @@ Cả hai phải báo **pass toàn bộ**. Nếu một bản fail mà bản kia p
 | `hoang_dao.dart` | `hoang-dao.ts` | Nạp âm (mệnh ngày), thần ngày → hoàng/hắc đạo, tuổi xung |
 | `xem_ngay.dart` | `xem-ngay.ts` | Thập nhị trực, Nhị thập bát tú, ngày kỵ (Nguyệt kỵ, Nguyệt tận, Tam Nương, Dương Công) |
 | `xuat_hanh.dart` | `xuat-hanh.ts` | Lục Diệu, giờ Lý Thuần Phong, Hỷ/Tài/Hạc thần |
+| `tu_vi.dart` | `tu-vi.ts` | Lập lá số tử vi: 12 cung, Cục, 14 chính tinh, phụ tinh, Tứ Hóa, Tràng Sinh, đại vận. Test: `shared/tu_vi_cases.json` (sinh từ bản TS bằng `npm run gen:tu-vi -w lich-core`, bản Dart phải khớp) |
+| `kinh_dich.dart` | `kinh-dich.ts` | Bát quái, bảng 64 quẻ (tên, đánh giá tốt/bình/xấu), lập quẻ từ dãy số, quẻ biến |
+| `sim.dart` | `sim.ts` | Chấm điểm sim (thang 10), tìm bộ số đẹp/xấu, gợi ý đuôi số hợp mệnh. Test: `shared/sim_cases.json` (sinh bằng `npm run gen:sim -w lich-core`) |
 | `tuoi.dart` | `tuoi.ts` | Tam hợp, lục hợp, xung, hình, hại, phá, Tam Sát; chấm điểm ngày theo tuổi (`danhGiaTuoi`) |
 | `day_info.dart` | `day-info.ts` | Gom mọi thông tin của 1 ngày (`DayInfo.fromSolar` / `getDayInfo`) |
 
@@ -123,6 +126,18 @@ npm run dev:web
 | Sửa giao diện 1 ô lịch | `src/components/calendar/day-cell.tsx` |
 | Sửa câu giải nghĩa (Bành Tổ, Lục Diệu, 28 sao, trực, ngày kỵ, câu kết luận theo tuổi) | `shared/data/xem-ngay.json` (dùng chung web + app) |
 | Đổi điểm từng yếu tố / ngưỡng Tốt–Xấu khi xét tuổi | `TUOI_FACTOR_SCORE` trong `tuoi.ts` **và** `tuoiFactorScore` trong `tuoi.dart` **và** `$FACTOR_SCORE` trong script sinh test, rồi sinh lại test |
+| Sửa giải nghĩa 64 quẻ, ý nghĩa bộ số, câu kết luận sim | `shared/data/sim.json` |
+| Thêm bộ số đẹp/xấu mới | Logic nhận diện trong `timBoSo` (`sim.ts` **và** `sim.dart`) + thêm tên/ý nghĩa vào `shared/data/sim.json`, rồi `npm run gen:sim -w lich-core` |
+| Đổi thang điểm sim hoặc đánh giá tốt/xấu của quẻ | `sim.ts`/`sim.dart` (`chamDiemSim`), `kinh-dich.ts`/`kinh_dich.dart` (bảng `QUE_64`), rồi sinh lại test |
+| Sửa giải nghĩa cung / sao tử vi, câu cảnh báo, câu cam kết bảo mật | `shared/data/tu-vi.json` |
+| Sửa quy tắc an sao tử vi | `tu-vi.ts` **và** `tu_vi.dart`, rồi `npm run gen:tu-vi -w lich-core` và chạy test cả 2 bản |
+| Giao diện lá số (bàn SVG, form, lưu/xóa) | `src/components/tu-vi/` (bàn: `la-so-board.tsx`), lưu trữ: `src/lib/tu-vi-storage.ts` |
+| Đổi màu / chữ logo, favicon, ảnh chia sẻ | Sửa biến đầu file `shared/tools/generate-icons.ps1` rồi chạy `powershell -ExecutionPolicy Bypass -File shared/tools/generate-icons.ps1`; sửa cùng màu trong `src/components/logo.tsx` và `src/app/icon.svg` |
+| Đổi tên website, mô tả SEO chung | `src/lib/site.ts` |
+| Header bảo mật, CSP (danh sách tên miền được phép) | `apps/web/next.config.ts`. Gắn dịch vụ ngoài (AdSense, Analytics…) phải thêm tên miền của họ vào CSP, nếu không trình duyệt sẽ chặn |
+| Đặt tên miền thật (canonical, sitemap, robots) | Copy `apps/web/.env.example` thành `.env.local`, điền `NEXT_PUBLIC_SITE_URL` |
+| Thêm trang vào sitemap | `src/app/sitemap.ts` |
+| Thêm mục menu đầu trang | Mảng `NAV` trong `src/components/site-header.tsx` |
 | Sửa trang Xem ngày tốt xấu | `src/app/xem-ngay-tot-xau/page.tsx`, các mục trong `src/components/xem-ngay/` |
 | Đổi tiêu đề / mô tả hiện trên Google | `metadata` trong `layout.tsx` |
 | Tuần bắt đầu từ Chủ Nhật | `leadingBlanks` trong `month-grid.tsx` và mảng `WEEKDAYS_SHORT` |

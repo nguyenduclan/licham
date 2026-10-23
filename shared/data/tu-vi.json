@@ -1,0 +1,79 @@
+{
+  "_huongDan": "Giải nghĩa ngắn cho lá số tử vi (dùng chung web + app). Nội dung tự biên soạn, mang tính tham khảo. Sửa câu chữ ở đây, không cần sửa code.",
+  "canhBao": "Lá số tử vi là một phần của văn hóa truyền thống, chỉ mang tính tham khảo và giải trí, không phải lời tiên đoán chắc chắn về tương lai. Hãy tự quyết định cuộc sống của mình dựa trên hoàn cảnh thực tế.",
+  "baoMat": "Ngày giờ sinh chỉ được xử lý ngay trên trình duyệt của bạn. Chúng tôi không gửi, không lưu dữ liệu này trên máy chủ.",
+
+  "cung": {
+    "Mệnh": "Cung trung tâm của lá số, nói về tính cách, năng lực và hướng đi chung của cả cuộc đời.",
+    "Huynh Đệ": "Quan hệ với anh chị em ruột, bạn bè thân thiết như anh em.",
+    "Phu Thê": "Chuyện tình cảm, hôn nhân và người bạn đời.",
+    "Tử Tức": "Con cái và mối quan hệ với thế hệ sau; cũng liên quan đến sự sáng tạo.",
+    "Tài Bạch": "Cách kiếm tiền, giữ tiền và sử dụng tiền bạc.",
+    "Tật Ách": "Sức khỏe, thể chất và những trở ngại có thể gặp phải.",
+    "Thiên Di": "Đi xa, môi trường bên ngoài, cách người khác nhìn nhận bạn.",
+    "Nô Bộc": "Bạn bè, đồng nghiệp, cấp dưới và các mối quan hệ xã hội.",
+    "Quan Lộc": "Công việc, sự nghiệp, học hành và địa vị.",
+    "Điền Trạch": "Nhà cửa, đất đai, tài sản cố định và không khí gia đình.",
+    "Phúc Đức": "Phúc phần, đời sống tinh thần, sự an vui trong tâm và ảnh hưởng của dòng họ.",
+    "Phụ Mẫu": "Cha mẹ, người bề trên và sự che chở, giáo dục nhận được."
+  },
+
+  "chinhTinh": {
+    "Tử Vi": "Sao đế vương: tượng trưng cho sự tôn quý, khả năng lãnh đạo, lòng tự trọng cao.",
+    "Thiên Cơ": "Sao mưu trí: nhanh nhạy, khéo tính toán, thích suy nghĩ và hay thay đổi.",
+    "Thái Dương": "Mặt trời: nhiệt tình, rộng lượng, thích giúp người, coi trọng danh tiếng.",
+    "Vũ Khúc": "Sao tài tinh: quyết đoán, thực tế, giỏi quản lý tiền bạc.",
+    "Thiên Đồng": "Sao phúc tinh: hiền hòa, dễ gần, yêu thích sự thoải mái, hưởng thụ.",
+    "Liêm Trinh": "Sao vừa chính trực vừa cá tính: nguyên tắc, mạnh mẽ, nhiều tham vọng.",
+    "Thiên Phủ": "Sao kho tàng: điềm đạm, chu đáo, giỏi giữ gìn và tích lũy.",
+    "Thái Âm": "Mặt trăng: dịu dàng, tinh tế, giàu cảm xúc, thiên về tích lũy tài sản.",
+    "Tham Lang": "Sao đa tài: năng động, giao thiệp rộng, nhiều ham muốn và sở thích.",
+    "Cự Môn": "Sao ăn nói: giỏi lý luận, tranh biện, nhưng dễ gặp thị phi.",
+    "Thiên Tướng": "Sao ấn tín: đứng đắn, có trách nhiệm, thích giúp đỡ và bảo vệ người khác.",
+    "Thiên Lương": "Sao che chở: hiền lành, chín chắn, có lòng nhân hậu, hay giúp người.",
+    "Thất Sát": "Sao tướng quân: gan dạ, quyết liệt, dám nghĩ dám làm, thích tự lập.",
+    "Phá Quân": "Sao tiên phong: thích đổi mới, phá cách, dám mạo hiểm."
+  },
+
+  "phuTinh": {
+    "Văn Xương": "Sao văn học: thông minh, học giỏi, có năng khiếu chữ nghĩa.",
+    "Văn Khúc": "Sao nghệ thuật: khéo léo, có tài ăn nói, năng khiếu nghệ thuật.",
+    "Tả Phù": "Sao trợ giúp: được người khác hỗ trợ, có quý nhân giúp đỡ.",
+    "Hữu Bật": "Sao trợ giúp: dễ hòa đồng, được bạn bè, đồng nghiệp nâng đỡ.",
+    "Thiên Khôi": "Quý nhân ban ngày: được người lớn tuổi, cấp trên giúp đỡ.",
+    "Thiên Việt": "Quý nhân ban đêm: được giúp đỡ một cách âm thầm, bất ngờ.",
+    "Lộc Tồn": "Sao tài lộc: chăm chỉ tích lũy, giữ của tốt.",
+    "Kình Dương": "Sát tinh: tính cương quyết, nóng nảy; dễ va chạm, cần kiềm chế.",
+    "Đà La": "Sát tinh: hay chậm trễ, dây dưa; cần kiên nhẫn.",
+    "Hỏa Tinh": "Sát tinh: bộc phát, nóng vội; làm việc nhanh nhưng dễ bốc đồng.",
+    "Linh Tinh": "Sát tinh: âm thầm, nhiều lo nghĩ; nên giữ tinh thần thoải mái.",
+    "Địa Không": "Sát tinh: ý tưởng khác người nhưng dễ hao hụt, nên thận trọng tiền bạc.",
+    "Địa Kiếp": "Sát tinh: dễ gặp biến động bất ngờ, nên chuẩn bị phương án dự phòng.",
+    "Thiên Mã": "Sao di chuyển: năng động, hay đi xa, thay đổi môi trường.",
+    "Hồng Loan": "Sao đào hoa: duyên dáng, thuận lợi chuyện tình cảm, hôn nhân.",
+    "Thiên Hỷ": "Sao vui vẻ: mang lại tin mừng, niềm vui.",
+    "Thái Tuế": "Sao của năm sinh: thẳng thắn, có chính kiến, đôi khi gây tranh luận."
+  },
+
+  "tuHoa": {
+    "Hóa Lộc": "Làm sao đi kèm thêm thuận lợi, đặc biệt về tài lộc.",
+    "Hóa Quyền": "Làm sao đi kèm thêm quyền lực, uy tín, khả năng kiểm soát.",
+    "Hóa Khoa": "Làm sao đi kèm thêm danh tiếng, học vấn, được người khác tôn trọng.",
+    "Hóa Kỵ": "Làm sao đi kèm gặp trở ngại, vướng mắc; là nơi cần chú ý nhiều hơn."
+  },
+
+  "trangSinh": {
+    "Tràng Sinh": "Giai đoạn khởi đầu, sinh sôi.",
+    "Mộc Dục": "Giai đoạn non nớt, cần rèn luyện.",
+    "Quan Đới": "Giai đoạn trưởng thành, bắt đầu có vị trí.",
+    "Lâm Quan": "Giai đoạn vững vàng, phát triển mạnh.",
+    "Đế Vượng": "Giai đoạn thịnh vượng nhất.",
+    "Suy": "Giai đoạn bắt đầu chậm lại.",
+    "Bệnh": "Giai đoạn yếu đi, cần giữ gìn.",
+    "Tử": "Giai đoạn ngưng nghỉ.",
+    "Mộ": "Giai đoạn cất giữ, tích lũy.",
+    "Tuyệt": "Giai đoạn kết thúc một chu kỳ.",
+    "Thai": "Giai đoạn thai nghén điều mới.",
+    "Dưỡng": "Giai đoạn nuôi dưỡng, chuẩn bị."
+  }
+}

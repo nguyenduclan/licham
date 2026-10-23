@@ -10,11 +10,14 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "gen:tu-vi": "tsx scripts/gen-tu-vi-cases.ts",
+    "gen:sim": "tsx scripts/gen-sim-cases.ts"
   },
   "devDependencies": {
     "@types/node": "^22.15.0",
+    "tsx": "^4.23.15",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
+    "vitest": "^5.0.5"
   }
 }

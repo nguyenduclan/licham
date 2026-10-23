@@ -1,0 +1,56 @@
+{
+  "description": "Lá số mẫu ĐỐI CHIẾU, nhập tay từ tuvi.vn (ảnh chụp ngày 2026-10-23). Vị trí tính theo chỉ số địa chi: 0 = Tý ... 11 = Hợi. Chỉ ghi các sao mà lich-core có an.",
+  "anchors": [
+    {
+      "name": "Nam 15/06/1992 12:00 (Nhâm Thân)",
+      "solar": "1992-06-15", "hourChi": 6, "gioiTinh": "nam",
+      "lunar": { "day": 15, "month": 5, "year": 1992 },
+      "amDuong": "Dương Nam", "banMenh": "Kiếm Phong Kim", "cuc": 3, "menhChi": 0, "thanChi": 0,
+      "chinhTinh": {
+        "Thiên Cơ": 5, "Tử Vi": 6, "Phá Quân": 8, "Liêm Trinh": 10, "Thiên Phủ": 10, "Thái Âm": 11, "Tham Lang": 0,
+        "Thiên Đồng": 1, "Cự Môn": 1, "Thiên Tướng": 2, "Vũ Khúc": 2, "Thiên Lương": 3, "Thái Dương": 3, "Thất Sát": 4
+      },
+      "phuTinh": {
+        "Văn Xương": 4, "Văn Khúc": 10, "Tả Phù": 8, "Hữu Bật": 6, "Thiên Khôi": 3, "Thiên Việt": 5,
+        "Lộc Tồn": 11, "Kình Dương": 0, "Đà La": 10, "Hỏa Tinh": 8, "Linh Tinh": 4, "Địa Không": 5, "Địa Kiếp": 5,
+        "Thiên Mã": 2, "Hồng Loan": 7, "Thiên Hỷ": 1, "Thái Tuế": 8
+      },
+      "tuHoa": { "Hóa Lộc": 3, "Hóa Quyền": 6, "Hóa Khoa": 8, "Hóa Kỵ": 2 },
+      "trangSinhChi": 11, "daiVanMenh": 3, "daiVanCungKe": { "chi": 1, "tuoi": 13 }
+    },
+    {
+      "name": "Nam 03/03/1985 08:00 (Ất Sửu)",
+      "solar": "1985-03-03", "hourChi": 4, "gioiTinh": "nam",
+      "lunar": { "day": 12, "month": 2, "year": 1985 },
+      "amDuong": "Âm Nam", "banMenh": "Hải Trung Kim", "cuc": 5, "menhChi": 11, "thanChi": 7,
+      "chinhTinh": {
+        "Tham Lang": 5, "Liêm Trinh": 5, "Cự Môn": 6, "Thiên Tướng": 7, "Thiên Đồng": 8, "Thiên Lương": 8,
+        "Thất Sát": 9, "Vũ Khúc": 9, "Thái Dương": 10, "Thiên Cơ": 0, "Phá Quân": 1, "Tử Vi": 1, "Thiên Phủ": 3, "Thái Âm": 4
+      },
+      "phuTinh": {
+        "Văn Xương": 6, "Văn Khúc": 8, "Tả Phù": 5, "Hữu Bật": 9, "Thiên Khôi": 0, "Thiên Việt": 8,
+        "Lộc Tồn": 3, "Kình Dương": 4, "Đà La": 2, "Hỏa Tinh": 11, "Linh Tinh": 2, "Địa Không": 7, "Địa Kiếp": 3,
+        "Thiên Mã": 11, "Hồng Loan": 2, "Thiên Hỷ": 8, "Thái Tuế": 1
+      },
+      "tuHoa": { "Hóa Lộc": 0, "Hóa Khoa": 1, "Hóa Kỵ": 4 },
+      "trangSinhChi": 8, "daiVanMenh": 5, "daiVanCungKe": { "chi": 10, "tuoi": 15 }
+    },
+    {
+      "name": "Nữ 20/11/1972 22:00 (Nhâm Tý)",
+      "solar": "1972-11-20", "hourChi": 11, "gioiTinh": "nu",
+      "lunar": { "day": 15, "month": 10, "year": 1972 },
+      "amDuong": "Dương Nữ", "banMenh": "Tang Đố Mộc", "cuc": 3, "menhChi": 0, "thanChi": 10,
+      "chinhTinh": {
+        "Thiên Cơ": 5, "Tử Vi": 6, "Phá Quân": 8, "Liêm Trinh": 10, "Thiên Phủ": 10, "Thái Âm": 11, "Tham Lang": 0,
+        "Thiên Đồng": 1, "Cự Môn": 1, "Thiên Tướng": 2, "Vũ Khúc": 2, "Thiên Lương": 3, "Thái Dương": 3, "Thất Sát": 4
+      },
+      "phuTinh": {
+        "Văn Xương": 11, "Văn Khúc": 3, "Tả Phù": 1, "Hữu Bật": 1, "Thiên Khôi": 3, "Thiên Việt": 5,
+        "Lộc Tồn": 11, "Kình Dương": 0, "Đà La": 10, "Hỏa Tinh": 3, "Linh Tinh": 9, "Địa Không": 0, "Địa Kiếp": 10,
+        "Thiên Mã": 2, "Hồng Loan": 3, "Thiên Hỷ": 9, "Thái Tuế": 0
+      },
+      "tuHoa": { "Hóa Lộc": 3, "Hóa Quyền": 6, "Hóa Khoa": 1, "Hóa Kỵ": 2 },
+      "trangSinhChi": 11, "daiVanMenh": 3, "daiVanCungKe": { "chi": 11, "tuoi": 13 }
+    }
+  ]
+}

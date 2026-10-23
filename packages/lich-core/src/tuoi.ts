@@ -59,7 +59,14 @@ export interface DanhGiaTuoi {
 
 /** Đánh giá ngày `day` với người sinh ngày `birth` (dương lịch). */
 export function danhGiaTuoi(birth: SolarDate, day: SolarDate, timeZone = VIETNAM_TIME_ZONE): DanhGiaTuoi {
-  const y = solarToLunar(birth, timeZone).year;
+  return danhGiaTuoiTheoNam(solarToLunar(birth, timeZone).year, day, timeZone);
+}
+
+/**
+ * Đánh giá ngày `day` chỉ dựa trên năm sinh âm lịch `y`. Dùng hàm này khi không muốn
+ * truyền ngày sinh đầy đủ (ví dụ trên URL web, để tránh lộ dữ liệu cá nhân).
+ */
+export function danhGiaTuoiTheoNam(y: number, day: SolarDate, timeZone = VIETNAM_TIME_ZONE): DanhGiaTuoi {
   const can = (y + 6) % 10;
   const chi = (y + 8) % 12;
   const jd = jdFromDate(day.day, day.month, day.year);

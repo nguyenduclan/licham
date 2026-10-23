@@ -1,68 +1,68 @@
 "use client";
 
-// Form nhập ngày sinh -> chuyển sang trang /xem-ngay-tot-xau?ngay=...&sinh=...
-// Ngày sinh được nhớ trong trình duyệt (localStorage) để lần sau khỏi nhập lại.
+// Form nhập ngày sinh -> chuyển sang trang /xem-ngay-tot-xau?ngay=YYYY-MM-DD&nam=YYYY
+// Quyền riêng tư: ngày sinh đầy đủ KHÔNG gửi lên URL, chỉ gửi năm sinh âm lịch (đủ để xét tuổi).
+// Ngày sinh được nhớ trong trình duyệt (localStorage) để lần sau khỏi nhập lại; có nút xóa.
 import Form from "next/form";
-import { useEffect, useRef } from "react";
-import { toIso, type SolarDate } from "lich-core";
+import { useRef, useState } from "react";
+import { solarToLunar, type SolarDate } from "lich-core";
+import { DateInput } from "@/components/date-input";
 
 const STORAGE_KEY = "licham:ngaySinh";
 
-export function XemNgayForm({ date, birth }: { date: SolarDate; birth?: SolarDate | null }) {
-  const birthRef = useRef<HTMLInputElement>(null);
+export function XemNgayForm({ date }: { date: SolarDate }) {
+  const namRef = useRef<HTMLInputElement>(null);
+  const birthIso = useRef("");
+  // Tăng key để tạo lại ô ngày sinh (làm trống) sau khi xóa dữ liệu đã lưu
+  const [birthKey, setBirthKey] = useState(0);
 
-  // Điền lại ngày sinh đã lưu (chỉ chạy trên trình duyệt)
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && birthRef.current && !birthRef.current.value) birthRef.current.value = saved;
-    } catch {
-      // Trình duyệt chặn localStorage: bỏ qua
-    }
-  }, []);
+  // Ngày sinh hợp lệ -> tính năm âm lịch (người sinh trước Tết thuộc năm âm trước)
+  const onBirthChange = (iso: string) => {
+    birthIso.current = iso;
+    if (!namRef.current) return;
+    const [year, month, day] = iso.split("-").map(Number);
+    namRef.current.value = iso ? String(solarToLunar({ day, month, year }).year) : "";
+  };
 
   const remember = () => {
     try {
-      if (birthRef.current?.value) localStorage.setItem(STORAGE_KEY, birthRef.current.value);
+      if (birthIso.current) localStorage.setItem(STORAGE_KEY, birthIso.current);
+    } catch {
+      // Trình duyệt chặn localStorage: bỏ qua
+    }
+  };
+
+  const forget = () => {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
     } catch {
       // bỏ qua
     }
+    onBirthChange("");
+    setBirthKey((k) => k + 1);
   };
 
   return (
     <Form action="/xem-ngay-tot-xau" onSubmit={remember} className="flex flex-col gap-3">
       <div className="grid gap-3 sm:grid-cols-2">
-        <label className="flex flex-col gap-1 text-sm">
-          <span className="font-medium">Ngày sinh của bạn (dương lịch)</span>
-          <input
-            ref={birthRef}
-            type="date"
-            name="sinh"
-            required
-            min="1900-01-01"
-            max="2100-12-31"
-            defaultValue={birth ? toIso(birth) : undefined}
-            className="rounded-lg border border-line bg-background px-3 py-2"
-          />
-        </label>
-        <label className="flex flex-col gap-1 text-sm">
-          <span className="font-medium">Ngày cần xem</span>
-          <input
-            type="date"
-            name="ngay"
-            required
-            min="1900-01-01"
-            max="2100-12-31"
-            defaultValue={toIso(date)}
-            className="rounded-lg border border-line bg-background px-3 py-2"
-          />
-        </label>
+        <DateInput
+          key={birthKey}
+          label="Ngày sinh của bạn"
+          onValueChange={onBirthChange}
+          required
+          storageKey={STORAGE_KEY}
+        />
+        <DateInput name="ngay" label="Ngày cần xem" defaultValue={date} required />
       </div>
+      <input ref={namRef} type="hidden" name="nam" />
       <button
         type="submit"
         className="mt-2 rounded-lg bg-primary px-4 py-2.5 font-semibold text-on-primary hover:opacity-90"
       >
         Xem ngày tốt xấu
+      </button>
+      <button type="button" onClick={forget} className="self-center text-xs text-muted underline hover:text-primary">
+        Xóa ngày sinh đã lưu trên trình duyệt này
       </button>
     </Form>
   );

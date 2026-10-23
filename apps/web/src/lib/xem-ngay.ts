@@ -3,7 +3,7 @@ import content from "@shared/data/xem-ngay.json";
 import {
   chiHourStart,
   chiOfDay,
-  danhGiaTuoi,
+  danhGiaTuoiTheoNam,
   DIA_CHI,
   getDayInfo,
   gioLyThuanPhong,
@@ -23,16 +23,26 @@ import {
   type SolarDate,
 } from "lich-core";
 
+import { daysInMonth } from "./vn-date";
+
 export { content };
 
-/** Đọc chuỗi "YYYY-MM-DD" (trong khoảng 1900-2100) thành SolarDate, sai định dạng trả về null. */
+/** Đọc chuỗi "YYYY-MM-DD" (trong khoảng 1900-2100) thành SolarDate; sai định dạng hoặc ngày không tồn tại (31/02) trả về null. */
 export function parseIsoDate(value: string | string[] | undefined): SolarDate | null {
   if (typeof value !== "string") return null;
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
   if (!m) return null;
   const [year, month, day] = [Number(m[1]), Number(m[2]), Number(m[3])];
-  if (year < 1900 || year > 2100 || month < 1 || month > 12 || day < 1 || day > 31) return null;
+  if (year < 1900 || year > 2100 || month < 1 || month > 12) return null;
+  if (day < 1 || day > daysInMonth(month, year)) return null;
   return { day, month, year };
+}
+
+/** Đọc năm sinh âm lịch từ URL (?nam=1994). Người sinh đầu 1900 trước Tết thuộc năm âm 1899. */
+export function parseLunarYear(value: string | string[] | undefined): number | null {
+  if (typeof value !== "string" || !/^\d{4}$/.test(value)) return null;
+  const year = Number(value);
+  return year >= 1899 && year <= 2100 ? year : null;
 }
 
 /** Khung giờ của giờ chi, ví dụ Dần -> "3:00–4:59". */
@@ -50,7 +60,8 @@ const CAP_GIO = [
   "Tỵ (9h–11h) và Hợi (21h–23h)",
 ];
 
-export function buildXemNgay(day: SolarDate, birth: SolarDate | null) {
+/** birthLunarYear: năm sinh âm lịch (không nhận ngày sinh đầy đủ để không lộ dữ liệu cá nhân). */
+export function buildXemNgay(day: SolarDate, birthLunarYear: number | null) {
   const info = getDayInfo(day);
   const { jd, lunar } = info;
   const dayCan = (jd + 9) % 10;
@@ -78,7 +89,7 @@ export function buildXemNgay(day: SolarDate, birth: SolarDate | null) {
       tot: isLucDieuTot(idx),
       ...content.lyThuanPhong[idx],
     })),
-    tuoi: birth ? danhGiaTuoi(birth, day) : null,
+    tuoi: birthLunarYear ? danhGiaTuoiTheoNam(birthLunarYear, day) : null,
   };
 }
 

@@ -33,22 +33,22 @@
 
   "_lucDieu": "Theo thứ tự Đại An, Lưu Liên, Tốc Hỷ, Xích Khẩu, Tiểu Cát, Không Vong",
   "lucDieu": [
-    { "danhGia": "Tốt", "moTa": "Ngày bình yên, mọi việc thuận lợi, thích hợp khởi sự và đi xa." },
-    { "danhGia": "Xấu", "moTa": "Công việc dễ trì trệ, kéo dài, giấy tờ chậm trễ; nên kiên nhẫn." },
-    { "danhGia": "Tốt vừa", "moTa": "Có tin vui nhanh; nên làm việc vào buổi sáng, buổi chiều kém hơn." },
-    { "danhGia": "Xấu", "moTa": "Dễ cãi vã, thị phi, hiểu lầm; nên giữ lời ăn tiếng nói." },
-    { "danhGia": "Tốt", "moTa": "Nhiều may mắn nhỏ, được người giúp đỡ, cầu tài có lợi." },
-    { "danhGia": "Xấu", "moTa": "Mưu sự khó thành, dễ mất mát; tránh việc lớn và giao dịch tiền bạc." }
+    { "danhGia": "Tốt", "moTa": "Sao của sự yên ổn. Hợp để bắt đầu việc mới, đi lại, gặp gỡ đối tác." },
+    { "danhGia": "Xấu", "moTa": "Sao của sự dây dưa. Hồ sơ, thủ tục dễ bị kéo dài; việc gấp nên chuẩn bị kỹ hơn." },
+    { "danhGia": "Tốt vừa", "moTa": "Sao của niềm vui đến sớm. Việc quan trọng nên xong trong nửa đầu ngày để tận dụng vận khí." },
+    { "danhGia": "Xấu", "moTa": "Sao của khẩu thiệt. Dễ bất đồng trong lời nói; khi bàn bạc nên mềm mỏng, tránh tranh cãi." },
+    { "danhGia": "Tốt", "moTa": "Sao của những điều may nhỏ. Dễ nhận được hỗ trợ, thuận cho việc buôn bán, cầu tài." },
+    { "danhGia": "Xấu", "moTa": "Sao của sự trống rỗng. Kế hoạch khó đạt kết quả; nên hoãn đầu tư, vay mượn hay ký kết lớn." }
   ],
 
   "_lyThuanPhong": "Theo thứ tự Đại An, Lưu Niên, Tốc Hỷ, Xích Khẩu, Tiểu Cát, Tuyệt Lộ",
   "lyThuanPhong": [
-    { "danhGia": "Tốt", "moTa": "Mọi việc đều tốt lành, cầu tài nên đi hướng Tây Nam. Nhà cửa yên ổn, người đi bình an." },
-    { "danhGia": "Xấu", "moTa": "Mưu sự khó thành, cầu tài mờ mịt, việc kiện cáo nên hoãn. Người đi xa chưa có tin." },
-    { "danhGia": "Tốt", "moTa": "Có tin vui sắp tới; cầu tài nên đi hướng Nam. Gặp gỡ, đi công việc nhiều may mắn." },
-    { "danhGia": "Xấu", "moTa": "Dễ tranh luận, cãi cọ; nên hoãn đi xa, tránh hội họp và việc quan." },
-    { "danhGia": "Tốt", "moTa": "Giờ rất tốt lành: buôn bán có lời, trong nhà hòa hợp, người đi sắp về." },
-    { "danhGia": "Xấu", "moTa": "Cầu tài không lợi, ra đi dễ gặp trở ngại, thiệt hại; nên cẩn trọng." }
+    { "danhGia": "Tốt", "moTa": "Khung giờ êm thuận: đi đường bình an, việc nhà ổn định. Muốn cầu tài, hướng Tây Nam được xem là thuận." },
+    { "danhGia": "Xấu", "moTa": "Khung giờ trì trệ: việc tính toán khó như ý, tin tức chậm. Chuyện tranh chấp, giấy tờ nên để giờ khác." },
+    { "danhGia": "Tốt", "moTa": "Khung giờ báo hỷ: dễ nghe tin tốt, gặp gỡ suôn sẻ. Muốn cầu tài, hướng Nam được xem là thuận." },
+    { "danhGia": "Xấu", "moTa": "Khung giờ dễ va chạm lời nói: hạn chế họp hành, thương lượng; nếu phải đi thì nên nhã nhặn, nhường nhịn." },
+    { "danhGia": "Tốt", "moTa": "Khung giờ đẹp nhất trong ngày: thuận cho giao thương, gia đạo hòa thuận, dễ có tin vui." },
+    { "danhGia": "Xấu", "moTa": "Khung giờ bất lợi: dễ hao tài, gặp trục trặc dọc đường. Việc không gấp nên dời sang giờ khác." }
   ],
 
   "_truc": "Theo thứ tự Kiến, Trừ, Mãn, Bình, Định, Chấp, Phá, Nguy, Thành, Thu, Khai, Bế",
@@ -59,7 +59,7 @@
     { "danhGia": "Tốt", "nen": "Các việc thông thường, sửa đường, san lấp.", "kieng": "Đào mương, khơi nước." },
     { "danhGia": "Tốt", "nen": "Cưới hỏi, ký kết, giao dịch, mua gia súc.", "kieng": "Kiện tụng, xuất hành xa." },
     { "danhGia": "Bình thường", "nen": "Xây dựng, sửa chữa, thuê người làm.", "kieng": "Dời nhà, xuất tiền, đi xa." },
-    { "danhGia": "Xấu", "nen": "Phá dỡ nhà cũ, chữa bệnh.", "kieng": "Hầu hết các việc lớn: cưới hỏi, khai trương, ký kết." },
+    { "danhGia": "Xấu", "nen": "Tháo dỡ công trình cũ, điều trị bệnh.", "kieng": "Cưới hỏi, khai trương, ký kết và các việc khởi đầu quan trọng." },
     { "danhGia": "Xấu", "nen": "Cúng bái cầu an.", "kieng": "Leo cao, đi thuyền, các việc mạo hiểm." },
     { "danhGia": "Tốt", "nen": "Khai trương, cưới hỏi, nhập học, xây dựng.", "kieng": "Kiện tụng." },
     { "danhGia": "Bình thường", "nen": "Thu nợ, thu hoạch, mua hàng, cất trữ.", "kieng": "Khai trương, an táng." },
@@ -75,7 +75,7 @@
     { "ten": "Phòng Nhật Thố", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, khai trương, an táng.", "kieng": "Mua sắm ruộng đất lớn." },
     { "ten": "Tâm Nguyệt Hồ", "danhGia": "Xấu", "nen": "Không nên làm việc lớn.", "kieng": "Khởi công, cưới hỏi, kiện tụng." },
     { "ten": "Vĩ Hỏa Hổ", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, an táng, khai trương.", "kieng": "Đóng giường, mua quần áo mới." },
-    { "ten": "Cơ Thủy Báo", "danhGia": "Tốt", "nen": "Xây dựng, an táng, khai trương, xuất hành, khai thông mương nước.", "kieng": "Đóng giường, đi thuyền." },
+    { "ten": "Cơ Thủy Báo", "danhGia": "Tốt", "nen": "Khởi công nhà cửa, mở cửa hàng, đi xa, tu sửa phần mộ, các việc liên quan đến nước như đào kênh, dẫn nước.", "kieng": "Làm hoặc kê giường mới, đi lại bằng đường thủy." },
     { "ten": "Đẩu Mộc Giải", "danhGia": "Tốt", "nen": "Xây dựng, sửa chữa, may mặc, cưới hỏi.", "kieng": "Đi thuyền mới." },
     { "ten": "Ngưu Kim Ngưu", "danhGia": "Xấu", "nen": "Đi thuyền, cắt may.", "kieng": "Cưới hỏi, xây dựng, khai trương." },
     { "ten": "Nữ Thổ Bức", "danhGia": "Xấu", "nen": "Cắt may, kết vải.", "kieng": "Cưới hỏi, an táng, kiện tụng." },

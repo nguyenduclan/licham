@@ -79,8 +79,12 @@ class DanhGiaTuoi {
 }
 
 /// Đánh giá ngày [day] với người sinh ngày [birth] (dương lịch).
-DanhGiaTuoi danhGiaTuoi(SolarDate birth, SolarDate day, {double timeZone = vietnamTimeZone}) {
-  final y = solarToLunar(birth, timeZone: timeZone).year;
+DanhGiaTuoi danhGiaTuoi(SolarDate birth, SolarDate day, {double timeZone = vietnamTimeZone}) =>
+    danhGiaTuoiTheoNam(solarToLunar(birth, timeZone: timeZone).year, day, timeZone: timeZone);
+
+/// Đánh giá ngày [day] chỉ dựa trên năm sinh âm lịch [y]. Dùng hàm này khi không muốn
+/// truyền ngày sinh đầy đủ (ví dụ trên URL web, để tránh lộ dữ liệu cá nhân).
+DanhGiaTuoi danhGiaTuoiTheoNam(int y, SolarDate day, {double timeZone = vietnamTimeZone}) {
   final can = (y + 6) % 10;
   final chi = (y + 8) % 12;
   final jd = jdFromDate(day.day, day.month, day.year);
