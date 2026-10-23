@@ -1,0 +1,2 @@
+# Cấu hình lint ≈ .eslintrc
+include: package:lints/recommended.yaml

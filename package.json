@@ -1,0 +1,13 @@
+{
+  "name": "licham",
+  "private": true,
+  "workspaces": [
+    "packages/lich-core",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w web",
+    "test:core": "npm test -w lich-core",
+    "gen:test-cases": "powershell -NoProfile -ExecutionPolicy Bypass -File shared/tools/generate-test-cases.ps1"
+  }
+}

@@ -1,0 +1,14 @@
+# pubspec.yaml ≈ package.json của Dart/Flutter
+name: lich_core
+description: Lõi tính lịch âm Việt Nam (thuật toán Hồ Ngọc Đức), dùng chung cho app Flutter.
+version: 0.1.0
+publish_to: none # package nội bộ, không đẩy lên pub.dev
+
+environment:
+  sdk: ^3.5.0
+
+# Không có dependencies lúc chạy: lõi lịch chỉ dùng dart:math.
+
+dev_dependencies:
+  lints: ^5.0.0 # bộ luật lint chuẩn của Dart (≈ eslint-config-recommended)
+  test: ^1.25.0 # framework test chính thức của Dart (≈ vitest/jest)

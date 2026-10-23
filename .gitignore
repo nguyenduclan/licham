@@ -1,0 +1,25 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+.env*.local
+
+# Dart / Flutter
+.dart_tool/
+build/
+pubspec_overrides.yaml
+*.iml
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android signing (KHÔNG commit khóa ký app)
+*.jks
+*.keystore
+key.properties
+
+# Hệ điều hành / editor
+.DS_Store
+Thumbs.db
+.idea/

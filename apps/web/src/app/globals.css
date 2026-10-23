@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Màu chủ đạo của web: đổi ở đây là đổi toàn bộ giao diện */
+:root {
+  --background: #fdf8f1;
+  --foreground: #2b1d16;
+  --surface: #ffffff;
+  --line: #eadfce;
+  --muted: #7a6a5e;
+  --primary: #b91c1c; /* đỏ son */
+  --primary-soft: #fbeaea;
+  --on-primary: #ffffff;
+  --accent: #b7791f; /* vàng đồng */
+  --today: #fdebcf; /* nền ô hôm nay */
+  --dot-hac: #a8a29e; /* chấm ngày hắc đạo */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #17110e;
+    --foreground: #f3e9df;
+    --surface: #221a16;
+    --line: #3a2e27;
+    --muted: #b3a294;
+    --primary: #f05252;
+    --primary-soft: #3b1f1f;
+    --on-primary: #1a0f0f;
+    --accent: #e3a94b;
+    --today: #3d2c17;
+    --dot-hac: #6b625c;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-today: var(--today);
+  --color-dot-hac: var(--dot-hac);
+  --font-sans: var(--font-be-vietnam-pro);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@utility nav-btn {
+  @apply flex h-10 w-10 items-center justify-center rounded-full text-2xl hover:bg-primary-soft;
+}

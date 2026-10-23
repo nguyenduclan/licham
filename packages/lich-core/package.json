@@ -1,0 +1,20 @@
+{
+  "name": "lich-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lõi tính lịch âm Việt Nam (thuật toán Hồ Ngọc Đức), dùng chung cho web Next.js",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
