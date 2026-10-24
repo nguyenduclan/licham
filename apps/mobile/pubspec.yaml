@@ -1,0 +1,37 @@
+# pubspec.yaml ≈ package.json của app Flutter
+name: licham
+description: "Lịch Âm Lịch (LAL): lịch âm, xem ngày, lá số tử vi"
+publish_to: "none" # app, không đẩy lên pub.dev
+
+# versionName+versionCode: tăng số sau dấu + mỗi lần đưa bản mới lên Google Play
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Đa ngôn ngữ: chữ hiển thị nằm trong lib/l10n/app_vi.arb (không viết cứng trong widget)
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.3 # định dạng ngày/số, đi kèm l10n (gói chính thức của Dart)
+  # Quản lý state (≈ Zustand/Redux nhẹ). Dùng cách cơ bản: Provider, NotifierProvider; KHÔNG sinh code
+  flutter_riverpod: ^3.4.3
+  # Điều hướng màn hình (≈ Next.js router), gói chính thức của nhóm Flutter
+  go_router: ^18.1.1
+  # Lõi lịch âm dùng chung logic với web (packages/lich-core bản TypeScript)
+  lich_core:
+    path: ../../packages/lich_core
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true # sinh code l10n từ file .arb (xem l10n.yaml)
+  assets:
+    # Nội dung (ngày lễ, giải nghĩa...) copy từ shared/data bằng shared/tools/sync-mobile-data.ps1
+    - assets/data/

@@ -1,0 +1,7 @@
+# Cấu hình sinh code đa ngôn ngữ (chạy tự động khi `flutter pub get` / `flutter run`).
+# Thêm chữ mới: thêm khóa vào lib/l10n/app_vi.arb, rồi dùng AppLocalizations.of(context)!.tenKhoa
+arb-dir: lib/l10n
+template-arb-file: app_vi.arb
+output-localization-file: app_localizations.dart
+output-class: AppLocalizations
+nullable-getter: false

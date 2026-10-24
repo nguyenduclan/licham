@@ -148,7 +148,52 @@ npm run dev:web
 
 > Lưu ý Next.js 16: config đang bật `cacheComponents`. Mọi chỗ dùng `new Date()` phải đặt sau `io()` (xem `calendar-app.tsx`), nếu không ngày sẽ bị "đóng băng" lúc build.
 
-## 4b. Chạy app Flutter *(bổ sung ở bước sau)*
+## 4b. App Flutter (`apps/mobile`)
+
+### Chạy app trên điện thoại Android
+1. Trên điện thoại: **Cài đặt → Giới thiệu điện thoại → bấm 7 lần vào "Số hiệu bản tạo"** để bật *Tùy chọn nhà phát triển*,
+   rồi vào *Tùy chọn nhà phát triển* bật **Gỡ lỗi USB**.
+2. Cắm cáp USB vào máy tính, trên điện thoại bấm **Cho phép** gỡ lỗi.
+3. Chạy:
+```powershell
+cd D:\code\licham\apps\mobile
+flutter devices          # phải thấy tên điện thoại
+flutter run              # cài bản debug và chạy (sửa code -> bấm r để tải lại nóng)
+flutter build apk --release   # tạo file APK để cài thử: build\app\outputs\flutter-apk\app-release.apk
+```
+
+### Cấu trúc
+```
+lib/
+  main.dart, app.dart        # khởi động app, theme, ngôn ngữ, router
+  core/theme/                # TOÀN BỘ màu, khoảng cách, cỡ chữ
+  core/router/               # các màn hình và đường dẫn (go_router)
+  core/widgets/home_shell.dart   # thanh điều hướng dưới
+  data/                      # đọc nội dung JSON trong assets/data
+  l10n/app_vi.arb            # TOÀN BỘ chữ hiển thị
+  features/today/            # màn Hôm nay: screens/, widgets/, providers/
+  features/calendar/         # màn Lịch tháng
+assets/data/                 # bản copy của shared/data (không sửa trực tiếp ở đây)
+```
+
+### Package đã dùng và lý do
+| Package | Lý do |
+|---|---|
+| `flutter_riverpod` | Quản lý state phổ biến nhất, an toàn kiểu dữ liệu; dùng cách cơ bản (`Provider`, `NotifierProvider`), **không** sinh code |
+| `go_router` | Router chính thức của nhóm Flutter, khai báo đường dẫn giống web |
+| `flutter_localizations`, `intl` | Bộ đa ngôn ngữ chính thức của Flutter/Dart |
+| `lich_core` | Lõi lịch âm của chính dự án (cùng logic với web) |
+
+### Muốn sửa X thì sửa ở đâu
+| Muốn… | Sửa ở đâu |
+|---|---|
+| Đổi màu chủ đạo, màu chấm hoàng/hắc đạo | `lib/core/theme/app_colors.dart` |
+| Đổi khoảng cách, bo góc, cỡ chữ | `lib/core/theme/app_spacing.dart` |
+| Sửa / thêm chữ hiển thị | `lib/l10n/app_vi.arb` (thêm khóa mới rồi dùng `AppLocalizations.of(context).tenKhoa`) |
+| Thêm ngày lễ, sửa giải nghĩa | Sửa `shared/data/*.json` rồi chạy `powershell -ExecutionPolicy Bypass -File shared/tools/sync-mobile-data.ps1` |
+| Đổi biểu tượng app | Sửa và chạy `shared/tools/generate-icons.ps1` (tạo luôn icon Android) |
+| Thêm màn hình / tab mới | `lib/core/router/app_router.dart` + thư mục mới trong `lib/features/` |
+| Đổi tên app, minSdk/targetSdk, mã định danh app | `android/app/src/main/AndroidManifest.xml` (tên), `android/app/build.gradle.kts` (SDK, `applicationId`) |
 
 ## 5. Các thao tác sửa thường gặp *(bổ sung ở bước sau)*
 

@@ -117,4 +117,14 @@ Save-Png (New-Logo 192) (Join-Path $icons 'icon-192.png')
 Save-Png (New-Logo 512) (Join-Path $icons 'icon-512.png')
 Save-Png (New-Logo 512 $true) (Join-Path $icons 'icon-maskable-512.png')
 Save-OgImage (Join-Path $app 'opengraph-image.png')
+
+# Biểu tượng app Android (Flutter): mipmap theo mật độ màn hình
+$androidRes = Join-Path $root 'apps\mobile\android\app\src\main\res'
+if (Test-Path $androidRes) {
+  $mipmaps = [ordered]@{ 'mipmap-mdpi' = 48; 'mipmap-hdpi' = 72; 'mipmap-xhdpi' = 96; 'mipmap-xxhdpi' = 144; 'mipmap-xxxhdpi' = 192 }
+  foreach ($dir in $mipmaps.Keys) {
+    New-Item -ItemType Directory -Force (Join-Path $androidRes $dir) | Out-Null
+    Save-Png (New-Logo $mipmaps[$dir]) (Join-Path $androidRes "$dir\ic_launcher.png")
+  }
+}
 Write-Host 'Xong.' -ForegroundColor Green

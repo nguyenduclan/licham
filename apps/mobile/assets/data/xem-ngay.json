@@ -1,0 +1,130 @@
+{
+  "_huongDan": "Nội dung giải nghĩa cho trang Xem ngày tốt xấu (dùng chung web + app). Sửa câu chữ ở đây, không cần sửa code. Thứ tự các mảng phải giữ đúng như comment.",
+  "canhBao": "Nội dung xem ngày, phong thủy chỉ mang tính tham khảo, dựa trên các sách lịch cổ truyền và có thể khác nhau giữa các nguồn.",
+
+  "_banhTo_can": "Theo thứ tự Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý",
+  "banhToCan": [
+    { "cau": "Giáp bất khai thương, tài vật hao vong", "giai": "Ngày Giáp không nên mở kho, xuất tiền của để tránh hao hụt." },
+    { "cau": "Ất bất tài thực, thiên chu bất trưởng", "giai": "Ngày Ất không nên gieo trồng, cây cối khó lớn." },
+    { "cau": "Bính bất tu táo, tất kiến hỏa ương", "giai": "Ngày Bính không nên sửa bếp, dễ gặp chuyện liên quan đến lửa." },
+    { "cau": "Đinh bất thế đầu, đầu chủ sinh sang", "giai": "Ngày Đinh không nên cắt tóc, cạo đầu." },
+    { "cau": "Mậu bất thụ điền, điền chủ bất tường", "giai": "Ngày Mậu không nên nhận đất, mua ruộng đất." },
+    { "cau": "Kỷ bất phá khoán, nhị bỉ tịnh vong", "giai": "Ngày Kỷ không nên hủy bỏ giấy tờ, khế ước." },
+    { "cau": "Canh bất kinh lạc, chức cơ hư trướng", "giai": "Ngày Canh không nên dệt vải, may vá việc lớn." },
+    { "cau": "Tân bất hợp tương, chủ nhân bất thường", "giai": "Ngày Tân không nên trộn tương, làm nước chấm." },
+    { "cau": "Nhâm bất ương thủy, cánh nan đê phòng", "giai": "Ngày Nhâm không nên tháo nước, đắp đê." },
+    { "cau": "Quý bất từ tụng, lý nhược địch cường", "giai": "Ngày Quý không nên kiện tụng, tranh chấp." }
+  ],
+  "_banhTo_chi": "Theo thứ tự Tý, Sửu, Dần, Mão, Thìn, Tỵ, Ngọ, Mùi, Thân, Dậu, Tuất, Hợi",
+  "banhToChi": [
+    { "cau": "Tý bất vấn bốc, tự nhạ tai ương", "giai": "Ngày Tý không nên gieo quẻ, xem bói." },
+    { "cau": "Sửu bất quán đái, chủ bất hoàn hương", "giai": "Ngày Sửu không nên làm lễ đội mũ, nhận chức." },
+    { "cau": "Dần bất tế tự, thần quỷ bất thường", "giai": "Ngày Dần không nên cúng tế lớn." },
+    { "cau": "Mão bất xuyên tỉnh, thủy tuyền bất hương", "giai": "Ngày Mão không nên đào giếng." },
+    { "cau": "Thìn bất khốc khấp, tất chủ trọng tang", "giai": "Ngày Thìn tránh khóc lóc, tránh việc tang." },
+    { "cau": "Tỵ bất viễn hành, tài vật phục tàng", "giai": "Ngày Tỵ không nên đi xa." },
+    { "cau": "Ngọ bất thiêm cái, thất chủ canh trương", "giai": "Ngày Ngọ không nên lợp mái, làm thêm nhà." },
+    { "cau": "Mùi bất phục dược, độc khí nhập tràng", "giai": "Ngày Mùi không nên bắt đầu uống thuốc." },
+    { "cau": "Thân bất an sàng, quỷ túy nhập phòng", "giai": "Ngày Thân không nên kê, đặt giường." },
+    { "cau": "Dậu bất hội khách, tân chủ hữu thương", "giai": "Ngày Dậu không nên mời khách, tụ tập đông người." },
+    { "cau": "Tuất bất cật khuyển, tác quái thượng sàng", "giai": "Ngày Tuất không nên ăn thịt chó." },
+    { "cau": "Hợi bất giá thú, bất lợi tân lang", "giai": "Ngày Hợi không nên cưới hỏi." }
+  ],
+
+  "_lucDieu": "Theo thứ tự Đại An, Lưu Liên, Tốc Hỷ, Xích Khẩu, Tiểu Cát, Không Vong",
+  "lucDieu": [
+    { "danhGia": "Tốt", "moTa": "Sao của sự yên ổn. Hợp để bắt đầu việc mới, đi lại, gặp gỡ đối tác." },
+    { "danhGia": "Xấu", "moTa": "Sao của sự dây dưa. Hồ sơ, thủ tục dễ bị kéo dài; việc gấp nên chuẩn bị kỹ hơn." },
+    { "danhGia": "Tốt vừa", "moTa": "Sao của niềm vui đến sớm. Việc quan trọng nên xong trong nửa đầu ngày để tận dụng vận khí." },
+    { "danhGia": "Xấu", "moTa": "Sao của khẩu thiệt. Dễ bất đồng trong lời nói; khi bàn bạc nên mềm mỏng, tránh tranh cãi." },
+    { "danhGia": "Tốt", "moTa": "Sao của những điều may nhỏ. Dễ nhận được hỗ trợ, thuận cho việc buôn bán, cầu tài." },
+    { "danhGia": "Xấu", "moTa": "Sao của sự trống rỗng. Kế hoạch khó đạt kết quả; nên hoãn đầu tư, vay mượn hay ký kết lớn." }
+  ],
+
+  "_lyThuanPhong": "Theo thứ tự Đại An, Lưu Niên, Tốc Hỷ, Xích Khẩu, Tiểu Cát, Tuyệt Lộ",
+  "lyThuanPhong": [
+    { "danhGia": "Tốt", "moTa": "Khung giờ êm thuận: đi đường bình an, việc nhà ổn định. Muốn cầu tài, hướng Tây Nam được xem là thuận." },
+    { "danhGia": "Xấu", "moTa": "Khung giờ trì trệ: việc tính toán khó như ý, tin tức chậm. Chuyện tranh chấp, giấy tờ nên để giờ khác." },
+    { "danhGia": "Tốt", "moTa": "Khung giờ báo hỷ: dễ nghe tin tốt, gặp gỡ suôn sẻ. Muốn cầu tài, hướng Nam được xem là thuận." },
+    { "danhGia": "Xấu", "moTa": "Khung giờ dễ va chạm lời nói: hạn chế họp hành, thương lượng; nếu phải đi thì nên nhã nhặn, nhường nhịn." },
+    { "danhGia": "Tốt", "moTa": "Khung giờ đẹp nhất trong ngày: thuận cho giao thương, gia đạo hòa thuận, dễ có tin vui." },
+    { "danhGia": "Xấu", "moTa": "Khung giờ bất lợi: dễ hao tài, gặp trục trặc dọc đường. Việc không gấp nên dời sang giờ khác." }
+  ],
+
+  "_truc": "Theo thứ tự Kiến, Trừ, Mãn, Bình, Định, Chấp, Phá, Nguy, Thành, Thu, Khai, Bế",
+  "truc": [
+    { "danhGia": "Tốt", "nen": "Khởi đầu việc mới, xuất hành, nhậm chức.", "kieng": "Động thổ, đào đất." },
+    { "danhGia": "Bình thường", "nen": "Dọn dẹp, trừ bỏ cái cũ, chữa bệnh.", "kieng": "Cưới hỏi, đi xa." },
+    { "danhGia": "Tốt", "nen": "Cầu tài, cúng tế, mở kho, nhập hàng.", "kieng": "Kiện tụng, nhậm chức." },
+    { "danhGia": "Tốt", "nen": "Các việc thông thường, sửa đường, san lấp.", "kieng": "Đào mương, khơi nước." },
+    { "danhGia": "Tốt", "nen": "Cưới hỏi, ký kết, giao dịch, mua gia súc.", "kieng": "Kiện tụng, xuất hành xa." },
+    { "danhGia": "Bình thường", "nen": "Xây dựng, sửa chữa, thuê người làm.", "kieng": "Dời nhà, xuất tiền, đi xa." },
+    { "danhGia": "Xấu", "nen": "Tháo dỡ công trình cũ, điều trị bệnh.", "kieng": "Cưới hỏi, khai trương, ký kết và các việc khởi đầu quan trọng." },
+    { "danhGia": "Xấu", "nen": "Cúng bái cầu an.", "kieng": "Leo cao, đi thuyền, các việc mạo hiểm." },
+    { "danhGia": "Tốt", "nen": "Khai trương, cưới hỏi, nhập học, xây dựng.", "kieng": "Kiện tụng." },
+    { "danhGia": "Bình thường", "nen": "Thu nợ, thu hoạch, mua hàng, cất trữ.", "kieng": "Khai trương, an táng." },
+    { "danhGia": "Tốt", "nen": "Khai trương, cưới hỏi, xuất hành, nhậm chức.", "kieng": "An táng, động thổ." },
+    { "danhGia": "Xấu", "nen": "Đắp đê, lấp hố, xây tường.", "kieng": "Hầu hết các việc lớn, nhất là chữa mắt và khai trương." }
+  ],
+
+  "_nhiThapBatTu": "Theo thứ tự Giác, Cang, Đê, Phòng, Tâm, Vĩ, Cơ, Đẩu, Ngưu, Nữ, Hư, Nguy, Thất, Bích, Khuê, Lâu, Vị, Mão, Tất, Chủy, Sâm, Tỉnh, Quỷ, Liễu, Tinh, Trương, Dực, Chẩn",
+  "nhiThapBatTu": [
+    { "ten": "Giác Mộc Giao", "danhGia": "Tốt", "nen": "Cưới hỏi, xây dựng, khai trương, thi cử.", "kieng": "An táng, sửa mộ." },
+    { "ten": "Cang Kim Long", "danhGia": "Xấu", "nen": "Cắt may, làm đồ dùng.", "kieng": "Cưới hỏi, xây dựng, an táng." },
+    { "ten": "Đê Thổ Lạc", "danhGia": "Xấu", "nen": "Không có việc lớn nào thật tốt.", "kieng": "Khởi công, cưới hỏi, đi thuyền." },
+    { "ten": "Phòng Nhật Thố", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, khai trương, an táng.", "kieng": "Mua sắm ruộng đất lớn." },
+    { "ten": "Tâm Nguyệt Hồ", "danhGia": "Xấu", "nen": "Không nên làm việc lớn.", "kieng": "Khởi công, cưới hỏi, kiện tụng." },
+    { "ten": "Vĩ Hỏa Hổ", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, an táng, khai trương.", "kieng": "Đóng giường, mua quần áo mới." },
+    { "ten": "Cơ Thủy Báo", "danhGia": "Tốt", "nen": "Khởi công nhà cửa, mở cửa hàng, đi xa, tu sửa phần mộ, các việc liên quan đến nước như đào kênh, dẫn nước.", "kieng": "Làm hoặc kê giường mới, đi lại bằng đường thủy." },
+    { "ten": "Đẩu Mộc Giải", "danhGia": "Tốt", "nen": "Xây dựng, sửa chữa, may mặc, cưới hỏi.", "kieng": "Đi thuyền mới." },
+    { "ten": "Ngưu Kim Ngưu", "danhGia": "Xấu", "nen": "Đi thuyền, cắt may.", "kieng": "Cưới hỏi, xây dựng, khai trương." },
+    { "ten": "Nữ Thổ Bức", "danhGia": "Xấu", "nen": "Cắt may, kết vải.", "kieng": "Cưới hỏi, an táng, kiện tụng." },
+    { "ten": "Hư Nhật Thử", "danhGia": "Xấu", "nen": "Không có việc lớn nào thật tốt.", "kieng": "Xây dựng, cưới hỏi, khai trương." },
+    { "ten": "Nguy Nguyệt Yến", "danhGia": "Xấu", "nen": "Lót giường, việc nhỏ trong nhà.", "kieng": "Xây dựng, đi thuyền, leo cao." },
+    { "ten": "Thất Hỏa Trư", "danhGia": "Tốt", "nen": "Hầu hết mọi việc: cưới hỏi, xây dựng, an táng, khai trương.", "kieng": "Không có kiêng kỵ lớn." },
+    { "ten": "Bích Thủy Du", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, khai trương, an táng.", "kieng": "Đi thuyền xa." },
+    { "ten": "Khuê Mộc Lang", "danhGia": "Xấu", "nen": "May mặc, nhập học.", "kieng": "Khai trương, an táng, mở cửa." },
+    { "ten": "Lâu Kim Cẩu", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, khai trương, may mặc.", "kieng": "Đóng giường." },
+    { "ten": "Vị Thổ Trĩ", "danhGia": "Tốt", "nen": "Cưới hỏi, xây dựng, an táng, khai trương.", "kieng": "Không có kiêng kỵ lớn." },
+    { "ten": "Mão Nhật Kê", "danhGia": "Xấu", "nen": "Xây dựng nhỏ, tu sửa.", "kieng": "An táng, cưới hỏi, mở cửa." },
+    { "ten": "Tất Nguyệt Ô", "danhGia": "Tốt", "nen": "Xây dựng, an táng, cưới hỏi, khai mương.", "kieng": "Đi thuyền." },
+    { "ten": "Chủy Hỏa Hầu", "danhGia": "Xấu", "nen": "Không có việc lớn nào thật tốt.", "kieng": "An táng, xây dựng, kiện tụng." },
+    { "ten": "Sâm Thủy Viên", "danhGia": "Tốt", "nen": "Xây dựng, khai trương, nhập học, xuất hành.", "kieng": "Cưới hỏi, an táng." },
+    { "ten": "Tỉnh Mộc Hãn", "danhGia": "Tốt", "nen": "Xây dựng, đào giếng, làm thủy lợi, nhập học.", "kieng": "May mặc, an táng." },
+    { "ten": "Quỷ Kim Dương", "danhGia": "Xấu", "nen": "An táng, chặt cỏ phá đất.", "kieng": "Xây dựng, cưới hỏi, khai trương." },
+    { "ten": "Liễu Thổ Chương", "danhGia": "Xấu", "nen": "Không có việc lớn nào thật tốt.", "kieng": "Xây dựng, an táng, cưới hỏi." },
+    { "ten": "Tinh Nhật Mã", "danhGia": "Xấu", "nen": "Xây phòng mới.", "kieng": "Cưới hỏi, an táng, khai trương." },
+    { "ten": "Trương Nguyệt Lộc", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, an táng, khai trương.", "kieng": "Sửa chữa thuyền." },
+    { "ten": "Dực Hỏa Xà", "danhGia": "Xấu", "nen": "Cắt may.", "kieng": "Xây dựng, cưới hỏi, an táng." },
+    { "ten": "Chẩn Thủy Dẫn", "danhGia": "Tốt", "nen": "Xây dựng, cưới hỏi, khai trương, xuất hành, nhập học.", "kieng": "Đi thuyền." }
+  ],
+
+  "ngayKy": {
+    "nguyetKy": { "ten": "Nguyệt kỵ", "moTa": "Mùng 5, 14, 23: không nên đi xa, khởi sự việc lớn." },
+    "nguyetTan": { "ten": "Nguyệt tận", "moTa": "Ngày cuối tháng âm: nên tránh khởi sự việc mới." },
+    "tamNuong": { "ten": "Tam Nương", "moTa": "Mùng 3, 7, 13, 18, 22, 27: kỵ cưới hỏi, khai trương, xuất hành." },
+    "duongCongKy": { "ten": "Dương Công Kỵ Nhật", "moTa": "13 ngày kỵ trong năm theo Dương Công: tránh mọi việc lớn." }
+  },
+
+  "tuoiFactors": {
+    "hoangDao": "Ngày hoàng đạo",
+    "hacDao": "Ngày hắc đạo",
+    "tamHop": "Tuổi tam hợp với chi ngày",
+    "lucHop": "Tuổi lục hợp với chi ngày",
+    "tuoiXung": "Tuổi nằm trong danh sách tuổi xung của ngày",
+    "lucXung": "Chi tuổi xung với chi ngày",
+    "tuongHinh": "Chi tuổi hình với chi ngày",
+    "tuongHai": "Chi tuổi hại với chi ngày",
+    "tuongPha": "Chi tuổi phá với chi ngày",
+    "tamSat": "Tuổi phạm Tam Sát của ngày",
+    "ngaySinhMenh": "Mệnh ngày sinh cho mệnh của bạn",
+    "dongHanh": "Mệnh ngày cùng hành với mệnh của bạn",
+    "ngayKhacMenh": "Mệnh ngày khắc mệnh của bạn",
+    "menhKhacNgay": "Mệnh của bạn khắc mệnh ngày"
+  },
+  "tuoiVerdict": {
+    "tot": { "ten": "Tốt với bạn", "moTa": "Ngày này hợp với tuổi của bạn, thuận lợi để làm việc quan trọng." },
+    "binhThuong": { "ten": "Bình thường", "moTa": "Ngày này không xung không hợp rõ rệt; làm việc thông thường được." },
+    "xau": { "ten": "Không hợp với bạn", "moTa": "Ngày này có yếu tố xung khắc với tuổi; nên cân nhắc dời việc quan trọng." }
+  }
+}

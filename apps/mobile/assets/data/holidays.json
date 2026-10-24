@@ -1,0 +1,48 @@
+{
+  "_huongDan": "Thêm ngày lễ: thêm 1 dòng vào 'solar' (ngày dương) hoặc 'lunar' (ngày âm). dayOff = true nếu là ngày nghỉ lễ chính thức (tô đỏ).",
+  "solar": [
+    { "day": 1, "month": 1, "name": "Tết Dương lịch", "dayOff": true },
+    { "day": 9, "month": 1, "name": "Ngày Học sinh – Sinh viên Việt Nam" },
+    { "day": 3, "month": 2, "name": "Ngày thành lập Đảng Cộng sản Việt Nam" },
+    { "day": 14, "month": 2, "name": "Lễ Tình nhân (Valentine)" },
+    { "day": 27, "month": 2, "name": "Ngày Thầy thuốc Việt Nam" },
+    { "day": 8, "month": 3, "name": "Ngày Quốc tế Phụ nữ" },
+    { "day": 26, "month": 3, "name": "Ngày thành lập Đoàn TNCS Hồ Chí Minh" },
+    { "day": 30, "month": 4, "name": "Ngày Giải phóng miền Nam", "dayOff": true },
+    { "day": 1, "month": 5, "name": "Ngày Quốc tế Lao động", "dayOff": true },
+    { "day": 19, "month": 5, "name": "Ngày sinh Chủ tịch Hồ Chí Minh" },
+    { "day": 1, "month": 6, "name": "Ngày Quốc tế Thiếu nhi" },
+    { "day": 28, "month": 6, "name": "Ngày Gia đình Việt Nam" },
+    { "day": 27, "month": 7, "name": "Ngày Thương binh – Liệt sĩ" },
+    { "day": 19, "month": 8, "name": "Ngày Cách mạng tháng Tám" },
+    { "day": 2, "month": 9, "name": "Quốc khánh", "dayOff": true },
+    { "day": 1, "month": 10, "name": "Ngày Quốc tế Người cao tuổi" },
+    { "day": 10, "month": 10, "name": "Ngày Giải phóng Thủ đô" },
+    { "day": 13, "month": 10, "name": "Ngày Doanh nhân Việt Nam" },
+    { "day": 20, "month": 10, "name": "Ngày Phụ nữ Việt Nam" },
+    { "day": 31, "month": 10, "name": "Lễ hội Halloween" },
+    { "day": 20, "month": 11, "name": "Ngày Nhà giáo Việt Nam" },
+    { "day": 22, "month": 12, "name": "Ngày thành lập Quân đội Nhân dân Việt Nam" },
+    { "day": 24, "month": 12, "name": "Đêm Giáng sinh" },
+    { "day": 25, "month": 12, "name": "Lễ Giáng sinh" }
+  ],
+  "lunar": [
+    { "day": 1, "month": 1, "name": "Tết Nguyên Đán", "dayOff": true },
+    { "day": 2, "month": 1, "name": "Mùng 2 Tết", "dayOff": true },
+    { "day": 3, "month": 1, "name": "Mùng 3 Tết", "dayOff": true },
+    { "day": 15, "month": 1, "name": "Tết Nguyên Tiêu (Rằm tháng Giêng)" },
+    { "day": 3, "month": 3, "name": "Tết Hàn Thực" },
+    { "day": 10, "month": 3, "name": "Giỗ Tổ Hùng Vương", "dayOff": true },
+    { "day": 15, "month": 4, "name": "Lễ Phật Đản" },
+    { "day": 5, "month": 5, "name": "Tết Đoan Ngọ" },
+    { "day": 15, "month": 7, "name": "Lễ Vu Lan" },
+    { "day": 15, "month": 8, "name": "Tết Trung Thu" },
+    { "day": 9, "month": 9, "name": "Tết Trùng Cửu" },
+    { "day": 10, "month": 10, "name": "Tết Thường Tân" },
+    { "day": 23, "month": 12, "name": "Ông Táo chầu trời" }
+  ],
+  "lunarEveryMonth": [
+    { "day": 15, "name": "Ngày rằm" }
+  ],
+  "lunarNewYearEve": { "name": "Giao thừa", "dayOff": true }
+}
