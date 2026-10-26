@@ -4,6 +4,7 @@
 import { chiHourStart, DIA_CHI, getDayInfo, type SolarDate } from "lich-core";
 import Link from "next/link";
 import { toIso } from "lich-core";
+import { HourList } from "@/components/xem-ngay/section";
 import { XemNgayForm } from "@/components/xem-ngay/xem-ngay-form";
 import { getHolidays } from "@/lib/holidays";
 import { dayHref } from "@/lib/lich-pages";
@@ -15,8 +16,12 @@ export function DayDetail({ date }: { date: SolarDate }) {
   const holidays = getHolidays(date, lunar, info.jd);
 
   return (
-    <section className="flex flex-col gap-5 self-start rounded-2xl border border-line bg-surface p-6 shadow-sm">
-      <div className="text-center">
+    <article className="flex flex-col gap-5 self-start rounded-2xl border border-line bg-surface p-6 shadow-sm">
+      <header className="text-center">
+        {/* Tiêu đề cho máy đọc (Google, trình đọc màn hình); giao diện đã thể hiện bằng số ngày lớn bên dưới */}
+        <h2 className="sr-only">
+          Lịch âm ngày {date.day}/{date.month}/{date.year}
+        </h2>
         <p className="text-sm font-medium uppercase tracking-wide text-muted">
           {WEEKDAYS[info.jd % 7]} · Tháng {date.month}/{date.year}
         </p>
@@ -37,7 +42,7 @@ export function DayDetail({ date }: { date: SolarDate }) {
             ))}
           </div>
         )}
-      </div>
+      </header>
 
       <dl className="grid grid-cols-3 gap-2 text-center text-sm">
         <InfoItem label="Ngày" value={info.canChiDay} />
@@ -63,29 +68,24 @@ export function DayDetail({ date }: { date: SolarDate }) {
         </li>
       </ul>
 
-      <div>
-        <h3 className="mb-2 text-sm font-semibold text-muted">Giờ hoàng đạo</h3>
-        <ul className="grid grid-cols-2 gap-2 text-sm sm:grid-cols-3">
-          {info.gioHoangDao.map((chi) => {
+      <section className="text-sm">
+        <h3 className="mb-2 font-semibold text-muted">Giờ hoàng đạo</h3>
+        <HourList
+          hours={info.gioHoangDao.map((chi) => {
             const start = chiHourStart(chi);
-            return (
-              <li key={chi} className="flex flex-col items-center rounded-lg bg-primary-soft px-2 py-1.5">
-                <b>{DIA_CHI[chi]}</b>
-                <span className="whitespace-nowrap text-muted">
-                  ({start}h–{(start + 2) % 24}h)
-                </span>
-              </li>
-            );
+            return { chi: DIA_CHI[chi], range: `${start}h–${(start + 2) % 24}h` };
           })}
-        </ul>
-      </div>
+          caption={`Giờ hoàng đạo ngày ${date.day}/${date.month}/${date.year}`}
+          cellClassName="bg-primary-soft"
+        />
+      </section>
 
-      <div className="border-t border-line pt-4">
+      <section className="border-t border-line pt-4">
         <h3 className="mb-3 text-sm font-semibold text-muted">Ngày này có hợp tuổi bạn không?</h3>
         {/* key: đổi ngày chọn thì form tạo lại để ô "Ngày cần xem" cập nhật theo */}
         <XemNgayForm key={toIso(date)} date={date} />
-      </div>
-    </section>
+      </section>
+    </article>
   );
 }
 

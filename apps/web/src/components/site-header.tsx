@@ -1,6 +1,8 @@
 // Thanh đầu trang chung cho mọi trang: logo + tên + menu.
 import Link from "next/link";
 import { Logo } from "./logo";
+import { SiteNav } from "./site-nav";
+import { ThemeSwitch } from "./theme-switch";
 
 const NAV = [
   { href: "/", label: "Lịch âm" },
@@ -21,14 +23,10 @@ export function SiteHeader() {
             <span className="block text-xs font-normal text-muted">Lịch vạn niên Việt Nam</span>
           </span>
         </Link>
-        {/* Màn hình nhỏ: menu xuống dòng dưới logo và cuộn ngang được */}
-        <nav className="-mx-2 flex w-full gap-1 overflow-x-auto text-sm font-medium lg:mx-0 lg:w-auto lg:gap-2">
-          {NAV.map((item) => (
-            <Link key={item.href} href={item.href} className="whitespace-nowrap rounded-lg px-2 py-1.5 hover:bg-primary-soft hover:text-primary">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Điện thoại: nút ☰ + menu xổ xuống; tablet: menu xuống dòng dưới logo, cuộn ngang; máy tính: cùng hàng logo */}
+        <SiteNav items={NAV}>
+          <ThemeSwitch />
+        </SiteNav>
       </div>
     </header>
   );

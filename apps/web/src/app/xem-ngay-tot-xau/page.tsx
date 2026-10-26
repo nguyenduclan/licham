@@ -3,17 +3,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
+import { Faq } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
 import { KetQua } from "@/components/xem-ngay/ket-qua";
-import { breadcrumbSchema, webAppSchema } from "@/lib/seo";
+import { FAQ_XEM_NGAY } from "@/lib/faq";
+import { breadcrumbSchema, pageMeta, webAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Xem ngày tốt xấu theo tuổi hôm nay",
   description:
     "Xem ngày tốt xấu hợp tuổi: giờ hoàng đạo, ngày kỵ, ngũ hành, Bành Tổ Bách Kỵ, Lục Diệu, Nhị Thập Bát Tú, trực, hướng và giờ xuất hành.",
   // Mọi biến thể ?ngay=&nam= đều trỏ canonical về một trang để Google không coi là trang trùng lặp
-  alternates: { canonical: "/xem-ngay-tot-xau" },
-};
+  path: "/xem-ngay-tot-xau",
+});
 
 export default function XemNgayPage({ searchParams }: PageProps<"/xem-ngay-tot-xau">) {
   return (
@@ -31,6 +33,9 @@ export default function XemNgayPage({ searchParams }: PageProps<"/xem-ngay-tot-x
       <Suspense fallback={<div className="h-96 animate-pulse rounded-2xl bg-surface" />}>
         <KetQua searchParams={searchParams} />
       </Suspense>
+      <div className="mt-5">
+        <Faq items={FAQ_XEM_NGAY} />
+      </div>
     </main>
   );
 }

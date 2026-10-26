@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { JsonLd } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
+import { siteSchema } from "@/lib/seo";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, THEME_COLOR } from "@/lib/site";
+import { themeScript } from "@/lib/theme";
 import "./globals.css";
 
 // Font có đủ dấu tiếng Việt (Geist mặc định không có subset vietnamese)
@@ -32,8 +35,15 @@ export const viewport: Viewport = { themeColor: THEME_COLOR };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="vi" className={`${beVietnamPro.variable} h-full antialiased`}>
+    // suppressHydrationWarning: script trong <head> gắn data-theme lên <html> trước khi React chạy
+    <html lang="vi" className={`${beVietnamPro.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Chọn nền sáng/tối TRƯỚC khi trang hiện ra để không bị chớp nền sáng */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-full flex flex-col">
+        {/* WebSite + Organization: định danh thương hiệu, có trên mọi trang */}
+        <JsonLd data={siteSchema} />
         <SiteHeader />
         {children}
         {/* Chân trang tạm ẩn theo yêu cầu. Muốn hiện lại: import SiteFooter từ "@/components/site-footer" và đặt <SiteFooter /> ở đây */}

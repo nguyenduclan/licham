@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Lớp dark: của Tailwind theo data-theme trên <html> (do công tắc sáng/tối đặt), không theo media query */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Màu chủ đạo của web: đổi ở đây là đổi toàn bộ giao diện */
 :root {
   --background: #fdf8f1;
@@ -13,22 +16,23 @@
   --accent: #b7791f; /* vàng đồng */
   --today: #fdebcf; /* nền ô hôm nay */
   --dot-hac: #a8a29e; /* chấm ngày hắc đạo */
+  color-scheme: light; /* ô nhập, thanh cuộn của trình duyệt cũng theo màu sáng */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #17110e;
-    --foreground: #f3e9df;
-    --surface: #221a16;
-    --line: #3a2e27;
-    --muted: #b3a294;
-    --primary: #f05252;
-    --primary-soft: #3b1f1f;
-    --on-primary: #1a0f0f;
-    --accent: #e3a94b;
-    --today: #3d2c17;
-    --dot-hac: #6b625c;
-  }
+/* Nền tối: data-theme do script trong <head> đặt theo lựa chọn của người dùng (xem src/lib/theme.ts) */
+:root[data-theme="dark"] {
+  --background: #17110e;
+  --foreground: #f3e9df;
+  --surface: #221a16;
+  --line: #3a2e27;
+  --muted: #b3a294;
+  --primary: #f05252;
+  --primary-soft: #3b1f1f;
+  --on-primary: #1a0f0f;
+  --accent: #e3a94b;
+  --today: #3d2c17;
+  --dot-hac: #6b625c;
+  color-scheme: dark;
 }
 
 @theme inline {

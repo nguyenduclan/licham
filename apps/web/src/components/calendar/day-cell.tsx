@@ -1,8 +1,11 @@
 "use client";
 
 // Một ô trong lịch tháng: ngày dương + chấm hoàng/hắc đạo, ngày âm, can chi, ngày lễ.
+import Link from "next/link";
 import type { DayInfo } from "lich-core";
 import type { Holiday } from "@/lib/holidays";
+import { inPlaceClick } from "@/lib/in-place-click";
+import { dayHref } from "@/lib/lich-pages";
 
 interface Props {
   info: DayInfo;
@@ -21,11 +24,16 @@ export function DayCell({ info, holidays, inMonth, isSunday, isToday, isSelected
   const lunarLabel = lunar.day === 1 ? `${lunar.day}/${lunar.month}${lunar.isLeap ? "N" : ""}` : `${lunar.day}`;
 
   return (
-    <button
-      onClick={onClick}
+    // Link thật tới trang ngày (Google lần theo được); bấm thường thì chỉ chọn ngày tại chỗ.
+    // prefetch={false}: tránh tải trước cả chục trang ngày đang hiện trên lịch.
+    <Link
+      href={dayHref(solar)}
+      prefetch={false}
+      onClick={inPlaceClick(onClick)}
       aria-label={`${solar.day}/${solar.month}/${solar.year}, âm lịch ${lunarLabel}, ngày ${info.isHoangDao ? "hoàng đạo" : "hắc đạo"}`}
+      aria-current={isSelected ? "date" : undefined}
       className={[
-        "relative flex min-h-16 flex-col border-b border-r border-line p-1 text-left transition-colors sm:min-h-28 sm:p-2",
+        "relative flex h-full min-h-16 flex-col p-1 text-left transition-colors sm:min-h-28 sm:p-2",
         isToday ? "bg-today" : "hover:bg-primary-soft",
         isSelected ? "z-10 outline-2 -outline-offset-2 outline-primary" : "",
         inMonth ? "" : "opacity-45",
@@ -55,6 +63,6 @@ export function DayCell({ info, holidays, inMonth, isSunday, isToday, isSelected
           {holidays.map((h) => h.name).join(" · ")}
         </span>
       )}
-    </button>
+    </Link>
   );
 }

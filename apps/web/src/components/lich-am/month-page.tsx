@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { jdFromDate } from "lich-core";
 import { dayHref, fmt, monthDays, monthHref, tietKhiStarts, yearHref } from "@/lib/lich-pages";
-import { daysInMonth, WEEKDAYS_SHORT } from "@/lib/vn-date";
+import { daysInMonth, WEEKDAYS, WEEKDAYS_SHORT } from "@/lib/vn-date";
 import { Section } from "@/components/xem-ngay/section";
 import { Breadcrumb } from "./breadcrumb";
 
@@ -10,6 +10,10 @@ export function MonthPage({ month, year }: { month: number; year: number }) {
   const days = monthDays(month, year);
   const firstJd = jdFromDate(1, month, year);
   const blanks = firstJd % 7; // 0 = Thứ Hai
+  // Ô trống đầu/cuối tháng là null; chia thành từng tuần 7 ô cho bảng lịch
+  const cells = [...Array<null>(blanks).fill(null), ...days];
+  while (cells.length % 7) cells.push(null);
+  const weeks = Array.from({ length: cells.length / 7 }, (_, w) => cells.slice(w * 7, w * 7 + 7));
   const first = days[0].info.lunar;
   const last = days[days.length - 1].info.lunar;
   const hoangDao = days.filter((d) => d.info.isHoangDao);
@@ -38,26 +42,46 @@ export function MonthPage({ month, year }: { month: number; year: number }) {
       </header>
 
       <Section title={`Bảng lịch tháng ${month}/${year}`}>
-        <div className="grid grid-cols-7 gap-1 text-center text-sm">
-          {WEEKDAYS_SHORT.map((w, i) => (
-            <div key={w} className={`py-1 font-semibold ${i === 6 ? "text-primary" : "text-muted"}`}>{w}</div>
-          ))}
-          {Array.from({ length: blanks }, (_, i) => <div key={`b${i}`} />)}
-          {days.map(({ info, holidays: hs }) => (
-            <Link
-              key={info.jd}
-              href={dayHref(info.solar)}
-              title={`${fmt(info.solar)} – âm lịch ${info.lunar.day}/${info.lunar.month}`}
-              className="flex flex-col items-center rounded-lg border border-line py-1.5 hover:bg-primary-soft"
-            >
-              <span className={`font-semibold ${hs.length || info.jd % 7 === 6 ? "text-primary" : ""}`}>{info.solar.day}</span>
-              <span className="flex items-center gap-1 text-xs text-muted">
-                <span className={`size-1.5 rounded-full ${info.isHoangDao ? "bg-primary" : "bg-dot-hac"}`} />
-                {info.lunar.day === 1 ? `${info.lunar.day}/${info.lunar.month}` : info.lunar.day}
-              </span>
-            </Link>
-          ))}
-        </div>
+        {/* <table>: mỗi cột là một thứ trong tuần, Google/AI đọc được "ngày X là thứ mấy, âm lịch bao nhiêu" */}
+        <table className="w-full table-fixed border-separate border-spacing-1 text-center text-sm">
+          <caption className="sr-only">Lịch âm dương tháng {month}/{year}</caption>
+          <thead>
+            <tr>
+              {WEEKDAYS_SHORT.map((w, i) => (
+                <th key={w} scope="col" className={`py-1 font-semibold ${i === 6 ? "text-primary" : "text-muted"}`}>
+                  <abbr title={WEEKDAYS[i]} className="no-underline">{w}</abbr>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {weeks.map((week, w) => (
+              <tr key={w}>
+                {week.map((cell, i) =>
+                  cell ? (
+                    <td key={cell.info.jd} className="p-0">
+                      <Link
+                        href={dayHref(cell.info.solar)}
+                        title={`${fmt(cell.info.solar)} – âm lịch ${cell.info.lunar.day}/${cell.info.lunar.month}`}
+                        className="flex flex-col items-center rounded-lg border border-line py-1.5 hover:bg-primary-soft"
+                      >
+                        <span className={`font-semibold ${cell.holidays.length || cell.info.jd % 7 === 6 ? "text-primary" : ""}`}>
+                          {cell.info.solar.day}
+                        </span>
+                        <span className="flex items-center gap-1 text-xs text-muted">
+                          <span className={`size-1.5 rounded-full ${cell.info.isHoangDao ? "bg-primary" : "bg-dot-hac"}`} />
+                          {cell.info.lunar.day === 1 ? `${cell.info.lunar.day}/${cell.info.lunar.month}` : cell.info.lunar.day}
+                        </span>
+                      </Link>
+                    </td>
+                  ) : (
+                    <td key={`trong-${i}`} />
+                  ),
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </Section>
 
       <div className="grid gap-5 lg:grid-cols-2">

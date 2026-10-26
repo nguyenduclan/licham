@@ -45,10 +45,10 @@ export async function KetQua({ searchParams }: { searchParams: SearchParams }) {
       )}
 
       <Section title="Giờ Hoàng Đạo">
-        <HourList hours={d.gioHoangDao} />
+        <HourList hours={d.gioHoangDao} caption="Giờ hoàng đạo" />
       </Section>
       <Section title="Giờ Hắc Đạo">
-        <HourList hours={d.gioHacDao} />
+        <HourList hours={d.gioHacDao} caption="Giờ hắc đạo" />
       </Section>
 
       <Section title="Các ngày kỵ">

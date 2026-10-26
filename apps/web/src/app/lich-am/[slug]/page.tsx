@@ -7,6 +7,7 @@ import { DayPage } from "@/components/lich-am/day-page";
 import { MonthPage } from "@/components/lich-am/month-page";
 import { YearPage } from "@/components/lich-am/year-page";
 import { fmt, lunarYearInfo, parseLichSlug, seoSlugs } from "@/lib/lich-pages";
+import { pageMeta } from "@/lib/seo";
 
 export function generateStaticParams() {
   return seoSlugs().map((slug) => ({ slug }));
@@ -16,31 +17,31 @@ export async function generateMetadata({ params }: PageProps<"/lich-am/[slug]">)
   const { slug } = await params;
   const p = parseLichSlug(slug);
   if (!p) return {};
-  const canonical = `/lich-am/${slug}`;
+  const path = `/lich-am/${slug}`;
   if (p.kind === "day") {
     const info = getDayInfo(p.date);
     const am = `${info.lunar.day}/${info.lunar.month}${info.lunar.isLeap ? " nhuận" : ""}`;
-    return {
+    return pageMeta({
       title: `Lịch âm ngày ${fmt(p.date)} – Âm lịch ${am} ${info.canChiYear}`,
       description: `Ngày ${fmt(p.date)} là ngày ${am} âm lịch năm ${info.canChiYear}, ngày ${info.canChiDay}, ${
         info.isHoangDao ? "ngày hoàng đạo" : "ngày hắc đạo"
       } (${info.thanNgay}), tiết ${info.tietKhi}. Xem giờ hoàng đạo, tuổi xung, việc nên làm và nên tránh.`,
-      alternates: { canonical },
-    };
+      path,
+    });
   }
   if (p.kind === "month") {
-    return {
+    return pageMeta({
       title: `Lịch âm tháng ${p.month} năm ${p.year}`,
       description: `Lịch âm tháng ${p.month}/${p.year}: đối chiếu ngày dương – âm, ngày hoàng đạo, ngày lễ, ngày rằm, mùng 1 và tiết khí trong tháng.`,
-      alternates: { canonical },
-    };
+      path,
+    });
   }
   const { tet } = lunarYearInfo(p.year);
-  return {
+  return pageMeta({
     title: `Lịch âm năm ${p.year} – Năm ${canChiYear(p.year)}, Tết ngày ${fmt(tet)}`,
     description: `Lịch âm ${p.year} (${canChiYear(p.year)}): Tết Nguyên Đán ngày ${fmt(tet)}, tháng nhuận, ngày mùng 1 các tháng âm, ngày lễ và 24 tiết khí trong năm.`,
-    alternates: { canonical },
-  };
+    path,
+  });
 }
 
 export default async function LichAmPage({ params }: PageProps<"/lich-am/[slug]">) {

@@ -1,16 +1,18 @@
 // /doi-ngay-am-duong: công cụ đổi ngày (chạy trên trình duyệt) + phần giải thích tĩnh cho SEO.
 import type { Metadata } from "next";
 import { DoiNgayApp } from "@/components/doi-ngay/doi-ngay-app";
+import { Faq } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
 import { Section } from "@/components/xem-ngay/section";
-import { breadcrumbSchema, webAppSchema } from "@/lib/seo";
+import { FAQ_DOI_NGAY } from "@/lib/faq";
+import { breadcrumbSchema, pageMeta, webAppSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Đổi ngày dương sang âm, âm sang dương chính xác",
   description:
     "Công cụ đổi lịch dương sang âm và âm sang dương theo giờ Việt Nam (1900–2100), có tháng nhuận, kèm can chi ngày tháng năm.",
-  alternates: { canonical: "/doi-ngay-am-duong" },
-};
+  path: "/doi-ngay-am-duong",
+});
 
 export default function DoiNgayPage() {
   return (
@@ -37,11 +39,7 @@ export default function DoiNgayPage() {
             tháng đầu tiên không chứa trung khí.
           </p>
         </Section>
-        <Section title="Câu hỏi thường gặp">
-          <p><b>Đổi ngày sinh âm lịch để làm gì?</b> Nhiều thủ tục, giấy tờ dùng ngày dương, còn cúng giỗ, xem tuổi lại theo ngày âm.</p>
-          <p><b>Sinh vào tháng nhuận thì sao?</b> Tick ô &ldquo;Tháng nhuận&rdquo; khi đổi âm sang dương. Năm không có tháng nhuận đó sẽ báo lỗi.</p>
-          <p><b>Công cụ chính xác đến năm nào?</b> Đã kiểm tra từ năm 1900 đến 2100, gồm các ngày Tết và tháng nhuận.</p>
-        </Section>
+        <Faq items={FAQ_DOI_NGAY} />
       </div>
     </main>
   );

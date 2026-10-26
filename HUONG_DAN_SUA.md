@@ -135,16 +135,25 @@ npm run dev:web
 | Đổi màu / chữ logo, favicon, ảnh chia sẻ | Sửa biến đầu file `shared/tools/generate-icons.ps1` rồi chạy `powershell -ExecutionPolicy Bypass -File shared/tools/generate-icons.ps1`; sửa cùng màu trong `src/components/logo.tsx` và `src/app/icon.svg` |
 | Đổi tên website, mô tả SEO chung | `src/lib/site.ts` |
 | Header bảo mật, CSP (danh sách tên miền được phép) | `apps/web/next.config.ts`. Gắn dịch vụ ngoài (AdSense, Analytics…) phải thêm tên miền của họ vào CSP, nếu không trình duyệt sẽ chặn |
-| Đặt tên miền thật (canonical, sitemap, robots) | Copy `apps/web/.env.example` thành `.env.local`, điền `NEXT_PUBLIC_SITE_URL` |
+| Đặt tên miền thật (canonical, sitemap, robots) | Copy `apps/web/.env.example` thành `.env.local`, điền `NEXT_PUBLIC_SITE_URL`. **Bắt buộc khi `npm run build`** (thiếu là build báo lỗi). Build thử trên máy: điền `http://localhost:3000` |
+| Sửa câu hỏi thường gặp (hiện trên trang + JSON-LD FAQPage) | `src/lib/faq.ts`; hỏi đáp tự sinh của trang ngày: cuối `day-page.tsx`; câu "Hôm nay là ngày bao nhiêu âm lịch?": `home-calendar.tsx` |
+| Sửa dữ liệu có cấu trúc (WebSite, Organization, WebApplication, Breadcrumb) | `src/lib/seo.ts` |
+| Trang mới: title/description/canonical/og:url/ảnh chia sẻ | Dùng `pageMeta({ title, description, path })` từ `src/lib/seo.ts` (đừng tự viết `openGraph`, sẽ mất ảnh chia sẻ) |
 | Thêm trang vào sitemap | `src/app/sitemap.ts` |
 | **Mỗi đầu năm:** đổi các năm có trang lịch ngày/tháng/năm dựng sẵn + đưa vào sitemap | `SEO_YEARS` trong `src/lib/site.ts` (giữ năm trước, năm nay, năm sau) |
 | Sửa nội dung trang lịch theo ngày / tháng / năm | `src/components/lich-am/day-page.tsx`, `month-page.tsx`, `year-page.tsx`; mô tả tiết khí: `shared/data/tiet-khi.json` |
 | Sửa công cụ đổi ngày âm dương | `src/components/doi-ngay/doi-ngay-app.tsx`, trang: `src/app/doi-ngay-am-duong/page.tsx` |
 | Sửa chân trang, trang 404 | `src/components/site-footer.tsx`, `src/app/not-found.tsx` |
 | Thêm mục menu đầu trang | Mảng `NAV` trong `src/components/site-header.tsx` |
+| Công tắc sáng/tối (chưa bấm: theo trình duyệt; đã bấm: lưu `sang`/`toi` ở khóa `giao-dien` trong localStorage) | Logic: `applyTheme` trong `src/lib/theme.ts`; nút ☀/☾: `src/components/theme-switch.tsx`; màu tối: khối `:root[data-theme="dark"]` trong `globals.css`. Muốn style riêng cho nền tối: dùng lớp `dark:` của Tailwind (đã nối với `data-theme`) |
+| Menu hamburger trên điện thoại (nút ☰, đóng/mở, mốc 640px) | `src/components/site-nav.tsx` (đổi mốc: thay các tiền tố `sm:` trong file đó) |
 | Sửa trang Xem ngày tốt xấu | `src/app/xem-ngay-tot-xau/page.tsx`, các mục trong `src/components/xem-ngay/` |
-| Đổi tiêu đề / mô tả hiện trên Google | `metadata` trong `layout.tsx` |
-| Tuần bắt đầu từ Chủ Nhật | `leadingBlanks` trong `month-grid.tsx` và mảng `WEEKDAYS_SHORT` |
+| Đổi tiêu đề / mô tả hiện trên Google | Trang chủ: `metadata` trong `layout.tsx`; trang khác: `pageMeta(...)` trong `page.tsx` của trang đó |
+| Tuần bắt đầu từ Chủ Nhật | Cách tính `startJd` trong `month-grid.tsx` và mảng `WEEKDAYS` / `WEEKDAYS_SHORT` |
+
+> SEO lịch trang chủ: mỗi ô ngày và nút ‹ › là **link thật** (`<a href>`) để Google đi tới trang ngày/tháng; bấm thường
+> thì chỉ đổi state tại chỗ nhờ `inPlaceClick` (`src/lib/in-place-click.ts`). Lịch tháng và bảng giờ hoàng đạo là `<table>`
+> (CSS xếp thành lưới) để Google/AI trích được dữ liệu. Thêm ô/cột mới thì giữ đúng cấu trúc `<tr>/<th>/<td>`.
 
 > Lưu ý Next.js 16: config đang bật `cacheComponents`. Mọi chỗ dùng `new Date()` phải đặt sau `io()` (xem `calendar-app.tsx`), nếu không ngày sẽ bị "đóng băng" lúc build.
 

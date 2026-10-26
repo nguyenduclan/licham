@@ -1,17 +1,19 @@
 // Trang /sim-phong-thuy: chấm điểm sim + gợi ý số hợp tuổi (chạy trên trình duyệt) và từ điển bộ số (tĩnh).
 import type { Metadata } from "next";
 import content from "@shared/data/sim.json";
+import { Faq } from "@/components/faq";
 import { JsonLd } from "@/components/json-ld";
 import { BoSoDictionary } from "@/components/sim/bo-so-dictionary";
-import { breadcrumbSchema, webAppSchema } from "@/lib/seo";
+import { FAQ_SIM } from "@/lib/faq";
+import { breadcrumbSchema, pageMeta, webAppSchema } from "@/lib/seo";
 import { SimApp } from "@/components/sim/sim-app";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Sim phong thủy hợp tuổi – Chấm điểm số điện thoại",
   description:
     "Chấm điểm sim phong thủy theo ngày sinh: ngũ hành hợp mệnh, âm dương, tổng nút, quẻ Kinh Dịch; gợi ý đuôi số đẹp hợp tuổi và các bộ số nên tránh.",
-  alternates: { canonical: "/sim-phong-thuy" },
-};
+  path: "/sim-phong-thuy",
+});
 
 export default function SimPhongThuyPage() {
   return (
@@ -32,6 +34,9 @@ export default function SimPhongThuyPage() {
       <SimApp />
       <div className="mt-8">
         <BoSoDictionary />
+      </div>
+      <div className="mt-6">
+        <Faq items={FAQ_SIM} />
       </div>
       <p className="mt-8 rounded-xl bg-background p-4 text-center text-sm text-muted">⚠ {content.canhBao}</p>
     </main>

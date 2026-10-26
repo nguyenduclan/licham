@@ -5,6 +5,7 @@ import { getHolidays } from "@/lib/holidays";
 import { dayHref, fmt, monthHref, tietKhiInfo, yearHref } from "@/lib/lich-pages";
 import { WEEKDAYS } from "@/lib/vn-date";
 import { buildXemNgay } from "@/lib/xem-ngay";
+import { Faq } from "@/components/faq";
 import { HourList, Section } from "@/components/xem-ngay/section";
 import { Breadcrumb } from "./breadcrumb";
 
@@ -61,7 +62,7 @@ export function DayPage({ date }: { date: SolarDate }) {
       </Section>
 
       <Section title="Giờ hoàng đạo">
-        <HourList hours={d.gioHoangDao} />
+        <HourList hours={d.gioHoangDao} caption={`Giờ hoàng đạo ngày ${fmt(date)}`} />
       </Section>
 
       <Section title="Việc nên làm và nên tránh">
@@ -86,6 +87,30 @@ export function DayPage({ date }: { date: SolarDate }) {
           <p className="text-sm text-muted">Tiết {info.tietKhi} thường bắt đầu vào khoảng ngày {tk.khoangNgay} dương lịch.</p>
         </Section>
       )}
+
+      {/* Hỏi đáp sinh từ số liệu của chính ngày này: câu trả lời ngắn, đúng dạng người dùng hay hỏi Google/AI */}
+      <Faq
+        items={[
+          {
+            q: `Ngày ${fmt(date)} là ngày bao nhiêu âm lịch?`,
+            a: `Ngày ${fmt(date)} dương lịch là ngày ${amLich} năm ${info.canChiYear} âm lịch, tức ngày ${info.canChiDay}, tháng ${info.canChiMonth}.`,
+          },
+          {
+            q: `Ngày ${fmt(date)} tốt hay xấu?`,
+            a: `Ngày ${fmt(date)} là ngày ${info.isHoangDao ? "hoàng đạo" : "hắc đạo"} (${info.thanNgay}), trực ${d.truc.name} (${d.truc.danhGia.toLowerCase()}), sao ${d.tu.name} (${d.tu.danhGia.toLowerCase()}).${
+              d.ngayKy.length ? ` Ngày này phạm ${d.ngayKy.map((k) => k.ten).join(", ")}.` : " Ngày này không phạm ngày kỵ."
+            }`,
+          },
+          {
+            q: `Giờ hoàng đạo ngày ${fmt(date)} là những giờ nào?`,
+            a: `Giờ hoàng đạo ngày ${fmt(date)}: ${d.gioHoangDao.map((h) => `${h.chi} (${h.range})`).join(", ")}.`,
+          },
+          {
+            q: `Ngày ${fmt(date)} xung với tuổi nào?`,
+            a: `Ngày ${info.canChiDay} xung với các tuổi ${info.tuoiXung.join(", ")}.`,
+          },
+        ]}
+      />
 
       <nav className="flex flex-wrap justify-between gap-3 text-sm" aria-label="Chuyển ngày">
         <Link href={dayHref(prev)} className="rounded-lg border border-line px-3 py-2 hover:bg-primary-soft">‹ {fmt(prev)}</Link>

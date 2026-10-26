@@ -23,16 +23,36 @@ export function Rating({ label, good }: { label: string; good: boolean }) {
   );
 }
 
-/** Danh sách giờ dạng "Dần (3:00–4:59)". */
-export function HourList({ hours }: { hours: { chi: string; range: string }[] }) {
+/**
+ * Bảng giờ dạng "Dần (3:00–4:59)". Là <table> 2 cột (Giờ – Khoảng giờ) để Google/AI trích đúng,
+ * nhưng CSS xếp thành lưới ô như cũ. caption mô tả bảng (ẩn, chỉ cho máy đọc).
+ */
+export function HourList({
+  hours,
+  caption,
+  cellClassName = "bg-background",
+}: {
+  hours: { chi: string; range: string }[];
+  caption: string;
+  cellClassName?: string;
+}) {
   return (
-    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-      {hours.map((h) => (
-        <li key={h.chi} className="flex flex-col items-center rounded-lg bg-background px-2 py-1.5">
-          <b>{h.chi}</b>
-          <span className="whitespace-nowrap text-muted">({h.range})</span>
-        </li>
-      ))}
-    </ul>
+    <table className="w-full">
+      <caption className="sr-only">{caption}</caption>
+      <thead className="sr-only">
+        <tr>
+          <th scope="col">Giờ</th>
+          <th scope="col">Khoảng giờ</th>
+        </tr>
+      </thead>
+      <tbody className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+        {hours.map((h) => (
+          <tr key={h.chi} className={`flex flex-col items-center rounded-lg px-2 py-1.5 ${cellClassName}`}>
+            <th scope="row">{h.chi}</th>
+            <td className="whitespace-nowrap text-muted">({h.range})</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
